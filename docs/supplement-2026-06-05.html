@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年6月5日</title>
+<meta name="description" content="2026年6月5日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年6月5日</span>
+        <span class="badge badge-count">📊 50 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻顯示維生素D在精神疾病預防與治療中的角色受到高度關注，涵蓋ASD、ADHD及中風後憂鬱症；同時腸腦軸研究持續升溫，益生菌與短鏈脂肪酸在神經精神疾病中的證據日益增強，NAC作為穀胺酸調節劑在雙相合併酒精使用障礙中展現初步療效。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>N-乙醯半胱氨酸與加巴噴丁治療合併酒精使用障礙之雙相情緒障礙：隨機雙盲安慰劑對照交叉試驗</h3>
+          <p class="journal-source"> &middot; Glutamate- and GABA-targeted drugs for Co-occurring bipolar and alcohol use disorders: a randomized, double-blind, placebo-controlled, crossover study of N-acetylcysteine, gabapentin, and placebo.</p>
+          <p>NAC顯著降低雙相合併酒精使用障礙患者之背側前扣帶迴麩胺酸濃度及重度飲酒天數百分比，為臨床使用NAC作為輔助治療提供初步隨機對照試驗證據。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">符合DSM-5雙相情緒障礙合併酒精使用障礙診斷之成人（N=54，完成者49人）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">N-乙醯半胱氨酸（NAC）或加巴噴丁，為期一週的交叉設計</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要：dACC麩胺酸+麩胺醯胺濃度與GABA濃度（質子磁振頻譜）；探索性：重度飲酒天數百分比與憂鬱症状</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">雙相情緒障礙</span><span class="tag">成癮</span><span class="tag">NAC/穀胱甘肽</span><span class="tag">營養精神醫學</span><span class="tag">精神藥理學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">☀️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>孕婦維生素D濃度與後代自閉症譜系障礙及注意力不足過動症之風險：系統性回顧與劑量反應統合分析</h3>
+          <p class="journal-source"> &middot; The impact of maternal vitamin D levels during pregnancy and risk of autism spectrum disorder and attention deficit hyperactivity disorder diagnosis and symptoms in offspring: a systematic review and dose-response meta-analysis.</p>
+          <p>母體維生素D濃度每增加10 nmol/L，後代ASD風險線性降低9%，高vs低維生素D狀態亦與較低ADHD風險相關，支持孕期維生素D篩檢與缺乏時補充之臨床建議。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">孕婦及其發育期後代（15項研究，涵蓋ASD與ADHD診斷及症状）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">母體血清25-羥基維生素D濃度（暴露變項）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">高vs低維生素D狀態，及全暴露範圍的劑量反應分析</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">後代ASD及ADHD的診斷風險與症状嚴重度</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">自閉症</span><span class="tag">ADHD</span><span class="tag">維生素D</span><span class="tag">兒少精神醫學</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">⚠️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>鈣補充劑使用與老年女性認知功能衰退之關聯：縱向分析</h3>
+          <p class="journal-source"> &middot; Association Between Calcium Supplement Use and Cognitive Impairment in Ageing Women: A Longitudinal Analysis.</p>
+          <p>基線使用鈣補充劑的老年女性在7年追蹤期內認知衰退風險增加約3.6倍，此發現對老年族群鈣補充劑處方提出重要安全性警訊。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">認知功能正常之老年女性（N=227，平均年齡79.9歲）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">基線時鈣補充劑使用（暴露變項）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未使用鈣補充劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">7年後SPMSQ評分下降至少1分（定義為認知衰退）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">老年精神醫學</span><span class="tag">安全/交互作用</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">☀️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>維生素D透過挽救IL-6介導的BDNF降低緩解中風後憂鬱症</h3>
+          <p class="journal-source"> &middot; Vitamin D mitigates post-stroke depression by rescuing IL-6-mediated BDNF reduction.</p>
+          <p>急性缺血性中風患者之維生素D缺乏與中風後憂鬱症顯著相關，其機制涉及IL-6上升與海馬BDNF下降，動物實驗證實早期維生素D補充可改善憂鬱樣行為。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">急性缺血性中風患者（N=390）及中風後憂鬱症大鼠模型</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">血清維生素D濃度（觀察性）及維生素D補充（動物實驗）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">維生素D正常組vs缺乏組；補充組vs未補充組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">中風後1個月HAMD評估之憂鬱症發生率；動物之蔗糖偏好試驗與強迫游泳試驗表現</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">維生素D</span><span class="tag">神經發炎</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🦠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>益生菌藥物使用與帕金森氏症及阿茲海默症發生率之關聯：全國性巢式病例對照研究</h3>
+          <p class="journal-source"> &middot; Association of probiotic medication use with incident Parkinson disease and alzheimer disease: a nationwide nested case-control study.</p>
+          <p>使用益生菌藥物與帕金森氏症（OR=0.54）及阿茲海默症（OR=0.63）的發生風險顯著降低相關，支持腸道環境在神經退化性疾病中的保護角色。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">20-74歲日本健保資料庫中首次診斷帕金森氏症或阿茲海默症者（病例20,322人，對照60,966人）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">門診益生菌藥物處方紀錄（指標月前2年內之暴露窗）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未使用益生菌藥物</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">帕金森氏症或阿茲海默症之新發診斷</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">老年精神醫學</span><span class="tag">益生菌/精神益生菌</span><span class="tag">腦腸軸</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🔄</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>社交焦慮症患者血漿短鏈脂肪酸濃度及認知行為治療後之變化</h3>
+          <p class="journal-source"> &middot; Plasma short-chain fatty acid concentrations in social anxiety disorder and changes after cognitive behavioral therapy.</p>
+          <p>社交焦慮症患者基線異丁酸濃度顯著低於健康對照，經9週網路認知行為治療後異丁酸、丁酸、丙酸及戊酸濃度上升，且治療效果維持至36個月追蹤。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">社交焦慮症患者（N=46）及健康對照者（N=42）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">9週網路認知行為治療</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組（未接受治療）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">血漿9種短鏈脂肪酸濃度之縱向變化（治療前、後及36個月追蹤）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">焦慮症</span><span class="tag">腦腸軸</span><span class="tag">心理治療</span><span class="tag">微生物體</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">🐟</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>MAIA試驗：評估ω-3多不飽和脂肪酸豐富飲食對護理之家住民獨立性喪失影響之前瞻性隨機對照試驗協議</h3>
+          <p class="journal-source"> &middot; The MAIA trial: Protocol of a prospective randomized controlled trial to evaluate the impact of an omega-3 polyunsaturated fatty acids-enriched diet on the loss of independence in nursing home residents.</p>
+          <p>此試驗將評估達到每日建議攝取量之ω-3脂肪酸豐富飲食是否能減緩護理之家住民24個月內的獨立性喪失，結果將影響機構營養政策指引。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">護理之家老年住民（N=432，集群隨機分配）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">ω-3多不飽和脂肪酸豐富飲食（涵蓋亞麻酸、EPA、DHA，達每日建議攝取量）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">常規機構飲食</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要：24個月時ADL-LFS評分變化；次要：營養狀態、肌肉功能、跌倒率、感染率、認知功能、憂鬱量表</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">ω-3脂肪酸</span><span class="tag">老年精神醫學</span><span class="tag">認知功能</span><span class="tag">多營養素</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#8</span>
+            <span class="emoji-icon">🔬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>維生素D缺乏與憂鬱症：補體相關突觸重塑與VDBP-Megalin訊號傳導之神經免疫綜述</h3>
+          <p class="journal-source"> &middot; Vitamin D deficiency and depression: A Neuroimmune review of complement-associated synaptic remodeling and VDBP-Megalin signaling.</p>
+          <p>本综述提出維生素D缺乏可能透過削弱補體抑制導致C3相關微膠細胞突觸過度修剪，及透過VDBP-Megalin訊號造成神經元壓力，解釋維生素D補充試驗效果不一致的原因可能為生物異質性。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">憂鬱症合併維生素D缺乏之患者（文獻綜合）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">維生素D訊號傳導路徑（機制性探討）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">正常維生素D訊號狀態</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">補體介導之突觸修剪、VDBP-Megalin相關神經元壓力、興奮/抑制平衡</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">維生素D</span><span class="tag">神經發炎</span><span class="tag">營養精神醫學</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>自閉症譜系障礙前臨床模型中藥理學與微生物群為基礎療法之成效：系統性回顧</h3>
+          <p class="journal-source"></p>
+          <p>52項動物研究顯示ASD樣行為缺損可透過針對神經傳遞、神經發炎、代謝及腦腸軸等多系統介入加以調節，支持ASD病理的多因子本質。</p>
+          <div class="card-footer">
+            <span class="tag">自閉症</span><span class="tag">腦腸軸</span><span class="tag">微生物體</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>dCA3CaMKIIα→VTADA→NAc迴路中NgR依賴性可塑性構成壓力韌性與易感性之基礎</h3>
+          <p class="journal-source"></p>
+          <p>抑鬱樣小鼠海馬dCA3區NgR表達顯著增加，下调NgR或增強麩胺酸能神經元興奮性可緩解抑鬱樣行為，揭示髓鞘相關訊號作為潛在治療靶點。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>腎上腺雄激素在青少年精神病理學中的性別特定角色</h3>
+          <p class="journal-source"></p>
+          <p>ABCD研究（N=11,696）顯示男性早期青少年較高DHEA濃度與較少外化及內化症状相關，女性則無此關聯，提示腎上腺初潮為性別特定脆弱性之敏感期。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>投射至伏隔核之前額葉皮質迴路構成慢性社會壓力誘發之抑鬱樣行為基礎</h3>
+          <p class="journal-source"></p>
+          <p>介面層第5層mPFC-NAc神經元在慢性社會挫敗壓力下表現迴路特異性突觸功能障礙，光遺傳調控證實此迴路在壓力易感性與韌性中的因果角色。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>MDMA合併與不合併追加劑量之急性效果比較：雙盲隨機安慰劑對照交叉試驗</h3>
+          <p class="journal-source"></p>
+          <p>60mg追加劑量延長MDMA主觀作用時間約1小時（5.6 vs 4.6小時），未增加峰值主觀或自主神經效果，但急性與亞急性不良反應仍較安慰劑常見。</p>
+          <div class="card-footer">
+            <span class="tag">精神藥理學</span><span class="tag">PTSD</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>PTSD患者CBC衍生發炎指標與死亡率之關聯</h3>
+          <p class="journal-source"></p>
+          <p>除PLR外，所有CBC衍生發炎指標的高發炎組與PTSD後全因及心血管死亡率增加相關，SIRI效應最強（HR=1.35），NLR與自殺死亡率關聯最大（HR=1.35）。</p>
+          <div class="card-footer">
+            <span class="tag">PTSD</span><span class="tag">自殺防治</span><span class="tag">神經發炎</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>聚焦超音波消融治療精神疾病</h3>
+          <p class="journal-source"></p>
+          <p>HIFU在嚴重難治型強迫症及憂鬱症中產生臨床有意義的症状減輕與生活品質改善，安全性良好且神經認知功能穩定，但個體顱骨特徵可能限制能量傳遞。</p>
+          <div class="card-footer">
+            <span class="tag">強迫症</span><span class="tag">憂鬱症</span><span class="tag">精神藥理學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏳️‍⚧️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>預測中國跨性別與性別多樣性者之非自殺性自傷：社會連結、內化污名與自尊之角色</h3>
+          <p class="journal-source"></p>
+          <p>中國TGD個案NSSI盛行率為36.36%，社會連結與自尊為顯著保護因子，內化污名在其中具中介效果，網路分析顯示「故意抓傷」與「故意捏掐」為主要NSSI方式。</p>
+          <div class="card-footer">
+            <span class="tag">自殺防治</span><span class="tag">跨文化精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>憂鬱症中大腦功能網路之雙重可控性去分化：大規模神經影像與轄錄組學整合之洞見</h3>
+          <p class="journal-source"></p>
+          <p>最大規模靜息態fMRI資料（N=1494）顯示MDD患者視覺與感覺運動網路平均可控性降低，額頂與顯著性網路異常升高，且與興奮/抑制神經元特異性基因表達顯著相關。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⌚</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>使用可穿戴設備衍生之晝夜節律生物標記進行憂鬱發作之一週預測：多中心深度學習研究</h3>
+          <p class="journal-source"></p>
+          <p>整合心率衍生晝夜相位與睡眠時序之深度學習模型可提前一週預測臨床驗證之憂鬱發作（AUROC=0.772），前20%風險天數涵蓋63.5%之憂鬱發作日。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">睡眠醫學</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>預防及減少兒少精神科與住宿照護中強制措施之介入：混合方法系統性回顧</h3>
+          <p class="journal-source"></p>
+          <p>針對組織文化與員工實務之介入措施與最大幅度強制措施減少相關，而兒童為焦點之行為介入效果較小或不確定，成功關鍵在於同時處理關係動態、員工反思與組織文化。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">社區精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>雙相情緒障礙患者20年藥物治療軌跡</h3>
+          <p class="journal-source"></p>
+          <p>20年追蹤顯示雙相患者維持治療以合併策略為主（基線75.8%），多重用藥與苯二氮平類藥物使用增加，情緒穩定劑處方下降，與指引建議出現明顯落差。</p>
+          <div class="card-footer">
+            <span class="tag">雙相情緒障礙</span><span class="tag">精神藥理學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌍</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>以混合效應隨機森林決定COVID-19大流行期間適應障礙症状之風險與保護因子相對重要性</h3>
+          <p class="journal-source"></p>
+          <p>跨11個歐洲國家15,155名成人之分析顯示，對大流行持續時間的不確定性、健康不佳、社會孤立為預測適應障礙症状的最重要因子，缺乏控制感為核心主題。</p>
+          <div class="card-footer">
+            <span class="tag">焦慮症</span><span class="tag">社區精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>憂鬱症白質形態計量相似性網路改變之細胞型態與時空轉錄特徵</h3>
+          <p class="journal-source"></p>
+          <p>MDD患者白質網路重組集中於胼胝體、扣帶束、鉤束等主要連合與聯合纖維束，轉錄組學整合顯示與寡突膠細胞功能、髓鞘化、脂質代謝及細胞壓力相關基因富集。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>透過膠質淋巴-反芻關係之神經生物學基礎調節憂鬱症</h3>
+          <p class="journal-source"></p>
+          <p>MDD患者膠質淋巴功能降低且與較嚴重憂鬱及反芻相關，反芻中介膠質淋巴-憂鬱關係，靜態與動態功能連結變化與多巴胺等神經傳導物質地圖空間相關。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span><span class="tag">睡眠醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>酒精戒斷誘發酒精尋求與抗拒厭惡攝取伴隨BNST活動增加</h3>
+          <p class="journal-source"></p>
+          <p>抗拒厭惡飲酒者在延長戒斷期持續表現酒精尋求行為，伴隨dBNST鈣瞬變增加，此表型特異性可塑性僅見於酒精而非糖精飲酒，揭示戒斷驅動的個體差異神經機制。</p>
+          <div class="card-footer">
+            <span class="tag">成癮</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>憂鬱症中異常左前額葉N100及其與額葉-邊緣系統代謝之關係</h3>
+          <p class="journal-source"></p>
+          <p>低嚴重度憂鬱症組左前額葉N100振幅顯著大於健康對照，且與前額葉皮質代謝增加及右側顳頂葉代謝降低相關，可能代表恢復興奮/抑制平衡的代償性神經生理機制。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🐭</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>雄性Sapap3基因敲除小鼠在平台仲介迴避任務中表現威脅偏誤：暴露與反應預防之效果</h3>
+          <p class="journal-source"></p>
+          <p>Sapap3-KO小鼠在動機衝突下表現增強的威脅敏感性，低強度電擊訓練後暴露與反應預防能更有效地消退迴避行為，伴隨內側眼眶額葉皮質活動變化。</p>
+          <div class="card-footer">
+            <span class="tag">強迫症</span><span class="tag">心理治療</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🐑</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>N-乙醯半胱氨酸膳食補充改善睡眠剝奪誘發之西藏綿羊瘤胃細胞凋亡</h3>
+          <p class="journal-source"></p>
+          <p>NAC透過上调KRT8表達、改善瘤胃微生物群失調、減少LPS滲漏與氧化壓力，緩解睡眠剝奪誘發之綿羊瘤胃上皮細胞凋亡。</p>
+          <div class="card-footer">
+            <span class="tag">NAC/穀胱甘肽</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Bacillus safensis NMCC-189緩解慢性束縛壓力誘發之抑鬱表型並調節神經化學與基因表達變化</h3>
+          <p class="journal-source"></p>
+          <p>B. safensis NMCC-189單獨或合併氟西汀可改善壓力誘發之行為異常，合併組在降低皮質醇、氧化壓力及提升血清素方面效果最顯著，並調節神經可塑性相關基因表達。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">益生菌/精神益生菌</span><span class="tag">腦腸軸</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>丁酸梭菌及其代謝物亞精胺透過減少發炎與氧化壓力延緩自然腦老化之認知衰退</h3>
+          <p class="journal-source"></p>
+          <p>丁酸梭菌與亞精胺處理能改善老年大鼠空間參考與辨識記憶，提升突觸可塑性相關組織結構與BDNF表達，增強腸道屏障功能並降低發炎與氧化壓力。</p>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">老年精神醫學</span><span class="tag">益生菌/精神益生菌</span><span class="tag">腦腸軸</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌱</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Abutilon fruticosum微生物群之eggNOG註釋直系同源基因綜合體外分析推論功能動態與能量代謝</h3>
+          <p class="journal-source"></p>
+          <p>根際微生物群富集與能量代謝、營養運輸、壓力反應及次級代謝相關之高豐度直系同源基因，推測其透過ATP/質子動力耦合與高親和力營養獲取等機制主導根際。</p>
+          <div class="card-footer">
+            <span class="tag">微生物體</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>從子癇前期患者陰道拭子以液滴式培養分離之Corynebacterium sp. nov.之表型、基因組與功能特徵</h3>
+          <p class="journal-source"></p>
+          <p>以液滴式微流體單細胞培養從子癇前期患者陰道分離出新種Corynebacterium，全基因體定序與功能註釋揭示其代謝、運輸系統及潛在抗菌抗性基因。</p>
+          <div class="card-footer">
+            <span class="tag">微生物體</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>多菌株生物膜聯合體增強腸道微生物群韌性並恢復抗生素後恆定</h3>
+          <p class="journal-source"></p>
+          <p>體外篩選之核心細菌聯合體在無菌小鼠腸道持續形成生物膜，相比單一或雙菌株處理能更顯著增加抗生素干擾後之微生物豐富度與多樣性，加速恢復健康相關分類群。</p>
+          <div class="card-footer">
+            <span class="tag">微生物體</span><span class="tag">腦腸軸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>噬菌體介導恢復暴露於ETBF與pks+大腸桿菌之結腸類器官上皮完整性、DNA損傷反應與轉錄組恆定</h3>
+          <p class="journal-source"></p>
+          <p>專一性裂解噬菌體處理可減緩ETBF與pks+大腸桿菌誘發之促發炎轉錄反應、DNA損傷訊號與上皮破壞，恢復上皮接合完整性並減少DNA雙股斷裂。</p>
+          <div class="card-footer">
+            <span class="tag">微生物體</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌿</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>白花鳶尾異黃酮作為碳源增強乳酸菌衍生後生元之抗衰老潛力</h3>
+          <p class="journal-source"></p>
+          <p>以白花鳶尾萃取物或鳶尾酮為碳源培養之L. reuteri MSD37後生元展現最高抗氧化與抗糖化活性，有效保存硫醇基團、抑制蛋白質氧化及AGE-RAGE交互作用。</p>
+          <div class="card-footer">
+            <span class="tag">多酚類</span><span class="tag">微生物體</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🩹</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>異位性皮膚炎</h3>
+          <p class="journal-source"></p>
+          <p>異位性皮膚炎為全球非致命疾病中失能調整生命年負擔第15高之疾病，與食物過敏、氣喘、過敏性鼻炎及精神健康障礙等多重共病相關，新世代標靶治療改變了治療格局。</p>
+          <div class="card-footer">
+            <span class="tag">神經發炎</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌱</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>邁向預測性植物微生物群：從組裝規則到部署</h3>
+          <p class="journal-source"></p>
+          <p>本综述主張從微生物群目錄編制轉向預測性與應用導向的植物微生物群工程，探討合成微生物群落、微生物群感知育種及特徵基礎微生物選擇等關鍵框架。</p>
+          <div class="card-footer">
+            <span class="tag">微生物體</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>M1受體調節劑VU0364572減弱皮質-丘腦-紋狀體傳遞並促進古柯鹼條件性位置偏好之消退</h3>
+          <p class="journal-source"></p>
+          <p>VU0364572透過直接（PFC→NAc）與多突触（PFC→PVT→NAc）路徑抑制伏隔核興奮性驅動，促進古柯鹼尋求行為之消退，且抑制效果持續至給藥後兩週。</p>
+          <div class="card-footer">
+            <span class="tag">成癮</span><span class="tag">精神藥理學</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>伏隔核中ANKS1B透過調節CBP-FoxO3複合體控制古柯鹼攝取之升級</h3>
+          <p class="journal-source"></p>
+          <p>長期古柯鹼使用後NAc中ANKS1B表達下调，操縱ANKS1B可選擇性影響攝取升級，其透過與CBP交互作用控制H3K27乙醯化並表觀遺傳抑制FoxO3轉錄。</p>
+          <div class="card-footer">
+            <span class="tag">成癮</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌿</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>柴胡-白芍藥對在憂鬱症中的系統層級理解：多組學揭示神經發炎與突觸可塑性之協同調節</h3>
+          <p class="journal-source"></p>
+          <p>多組學整合分析顯示柴胡-白芍藥對透過協同抑制NF-κB神經發炎訊號、增強PI3K/Akt/BDNF突觸重塑路徑及恢復氧化還原恆定發揮抗憂鬱作用。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經發炎</span><span class="tag">多酚類</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌱</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>夜花樹在魚藤酮誘發之帕金森氏症大鼠模型中的神經保護功效</h3>
+          <p class="journal-source"></p>
+          <p>夜花樹葉萃取物呈劑量依賴性神經保護效果，高劑量組療效可比擬標準左旋多巴-卡比多巴治療，透過恢復抗氧化酶、下调NF-κB及保存多巴胺水平發揮作用。</p>
+          <div class="card-footer">
+            <span class="tag">氧化壓力</span><span class="tag">神經發炎</span><span class="tag">多酚類</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>可溶性α-Klotho作為鑑定伊拉克庫德斯坦自閉症譜系障礙兒童之新型生物標記</h3>
+          <p class="journal-source"></p>
+          <p>ASD兒童血清S-KLα濃度顯著低於對照組（97.5 vs 133.7 pg/mL），ROC曲線下面積達0.91，且隨年齡增加而下降，女性顯著高於男性。</p>
+          <div class="card-footer">
+            <span class="tag">自閉症</span><span class="tag">兒少精神醫學</span><span class="tag">跨文化精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📊</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>精神疾病與內分泌、代謝及營養障礙共病之盛行率與結果：基於2.54億筆紀錄之綜述地圖</h3>
+          <p class="journal-source"></p>
+          <p>81項統合分析（2.54億筆紀錄）中，10項盛行率估計達強證據等級，包括精神分裂症維生素D缺乏（65.3%）、糖尿病憂鬱症共病（61.8%）等，共病憂鬱之糖尿病患者全因死亡風險增加48%。</p>
+          <div class="card-footer">
+            <span class="tag">代謝精神醫學</span><span class="tag">維生素D</span><span class="tag">憂鬱症</span><span class="tag">精神分裂症</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">❄️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>冬季出生在精神分裂症譜系與情感性疾病中之季節性縱向效果：PsyCourse研究發現</h3>
+          <p class="journal-source"></p>
+          <p>冬季出生對精神分裂症譜系或情感性疾病之長期精神病理、認知與功能結果無穩健影響，僅在女性發現細微性別依賴性認知效果，暗示可能之早期生命影響隨病程減弱。</p>
+          <div class="card-footer">
+            <span class="tag">精神分裂症</span><span class="tag">憂鬱症</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌍</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>糖尿病與憂鬱症之全球負擔（1990-2021）、趨勢及維生素D之影響：基於GBD與NHANES之多維度分析</h3>
+          <p class="journal-source"></p>
+          <p>1990-2021年糖尿病與憂鬱症全球疾病負擔持續加重，NHANES分析顯示較低維生素D水平與較高糖尿病（OR=1.71）及憂鬱症（OR=1.59）盛行率獨立相關。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">維生素D</span><span class="tag">代謝精神醫學</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>以薑黃素碳點靶向HIF-1α/PPARγ軸對抗鈾腎毒性</h3>
+          <p class="journal-source"></p>
+          <p>薑黃素衍生碳點CCDs-210透過清除ROS、穩定粒線體膜電位及抑制HIF-1α/PPARγ軸，逆轉鈾暴露引發之脂質代謝失調並改善細胞存活，體內亦顯示腎臟保護效果。</p>
+          <div class="card-footer">
+            <span class="tag">藏紅花/薑黃</span><span class="tag">氧化壓力</span><span class="tag">粒線體功能</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌿</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>中藥衍生天然產物在第二型糖尿病中之應用：生物活性化合物與分子機制之綜合回顧</h3>
+          <p class="journal-source"></p>
+          <p>小檗鹼、薑黃素與人蔘皂苷透過AMPK活化、抗發炎、抗氧化及胰島素訊號等共同與獨特機制調節血糖脂質，但因吸收差、劑量不一致等因素限制臨床廣泛應用。</p>
+          <div class="card-footer">
+            <span class="tag">藏紅花/薑黃</span><span class="tag">代謝精神醫學</span><span class="tag">多酚類</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">☢️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>預防的現代奧德賽：整合營養與生活方式於輻射緩減—敘述性回顧</h3>
+          <p class="journal-source"></p>
+          <p>營養調控透過微量營養素（硒、鋅）與植化素（白藜蘆醇、薑黃素、EGCG）活化Nrf2及抑制NF-κB路徑，配合規律運動與充足睡眠等生活方式，提供對抗輻射損傷之多重路徑保護。</p>
+          <div class="card-footer">
+            <span class="tag">多酚類</span><span class="tag">藏紅花/薑黃</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>酯化吲哚-3-丙酸與薑黃素對抗高葡萄糖壓力之神經保護潛力：靶向氧化損傷、Akt/mTOR及BDNF/TrkB路徑</h3>
+          <p class="journal-source"></p>
+          <p>新穎薑黃素-吲哚-3-丙酸偶聯物CUR-IPA透過調節氧化還原狀態、粒線體功能及PI3K/Akt/mTOR與BDNF/TrkB/CREB存活訊號，展現對高葡萄糖誘發神經元損傷之強效保護。</p>
+          <div class="card-footer">
+            <span class="tag">藏紅花/薑黃</span><span class="tag">氧化壓力</span><span class="tag">粒線體功能</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👶</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>早期生活胃腸道發炎與發育中大腦：揭開長期認知功能障礙之路徑</h3>
+          <p class="journal-source"></p>
+          <p>早期嚴重腸道損傷（如壞死性小腸結腸炎）導致40%全局神經發育障礙風險，慢性發炎與微量營養素缺乏（鐵、維生素B12、葉酸）及白質結構改變相關，呼籲將早期腸道疾病視為神經認知風險紅旗。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">腦腸軸</span><span class="tag">神經發炎</span><span class="tag">認知功能</span><span class="tag">葉酸/甲基葉酸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">😴</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>益生菌與共生菌補充對運動族群睡眠參數之效果：隨機對照試驗之系統性回顧與SWiM整合</h3>
+          <p class="journal-source"></p>
+          <p>6項RCT（n=180）中12項主要睡眠結果有9項 favor 補充，益生菌與共生菌均顯著改善主觀睡眠品質與部分睡眠潛伏期，偶爾伴隨壓力、焦慮與疲勞減少。</p>
+          <div class="card-footer">
+            <span class="tag">睡眠品質</span><span class="tag">益生菌/精神益生菌</span><span class="tag">腦腸軸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+              <span class="topic-name">憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:67%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">神經科學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">12</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">腦腸軸</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:58%"></div></div>
+              <span class="topic-count">7</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">維生素D</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">益生菌/精神益生菌</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">認知功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">兒少精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">成癮</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">氧化壓力</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">自閉症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">代謝精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">雙相情緒障礙</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">焦慮症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">PTSD</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">強迫症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">精神藥理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">老年精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">ADHD</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:8%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">精神分裂症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">自殺防治</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">多酚類</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">NAC/穀胱甘肽</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">ω-3脂肪酸</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">微生物體</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:58%"></div></div>
+              <span class="topic-count">7</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">睡眠醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">安全/交互作用</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:8%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">跨文化精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">營養精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">神經發炎</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">粒線體功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">葉酸/甲基葉酸</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:8%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">社區精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">心理治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:17%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">維生素D</span><span class="keyword">腦腸軸</span><span class="keyword">益生菌</span><span class="keyword">NAC</span><span class="keyword">憂鬱症</span><span class="keyword">認知功能</span><span class="keyword">ω-3脂肪酸</span><span class="keyword">神經發炎</span></div></div>
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：GLM-5-Turbo</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
