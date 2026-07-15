@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年7月15日</title>
+<meta name="description" content="2026年7月15日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年7月15日</span>
+        <span class="badge badge-count">📊 8 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text"></p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">💊👶</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>中國葉酸補充計畫對長期兒童發育的公平性與有效性分析</h3>
+          <p class="journal-source">Journal of Nutrition (預估期刊) &middot; The equity and effectiveness of China's 2009 folic acid supplementation programme for long-term child development.</p>
+          <p>針對中國農村婦女的大規模前瞻性研究顯示，母體葉酸補充對女性後代具有長期益處，包括記憶力、數理推理能力的提升以及成年後抑鬱症狀的減少，但效果具有性別差異且受社會經濟地位影響。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">中國農村女性及其後代（10-15歲）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">2009年葉酸補充計畫</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未參加計畫者或男性後代</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">後代認知功能（記憶、數理）與心理健康（憂鬱量表分數）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">葉酸/甲基葉酸</span><span class="tag">兒少精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🔬🧬</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>多組學整合揭示精神疾病的MHC II介導神經發炎與代謝失調</h3>
+          <p class="journal-source">Nature Mental Health (預估期刊) &middot; Integrative multi-omics reveals MHC class II-mediated neuroinflammation and systemic metabolic dysregulation as transdiagnostic drivers in major brain disorders.</p>
+          <p>透過整合多組學、孟德爾隨機化和機器學習，研究發現雙相情感障礙與憂鬱症等疾病存在一個「雙軸」病因架構，包括脂質代謝異常（FADS2介導）與MHC Class II介導的神經發炎，為針對性營養干預提供靶點。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">雙相情感障礙、憂鬱症、精神分裂症等患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">多組學整合分析與MHC Class II/脂質代謝標靶</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組與健康人群</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">疾病風險標誌物、炎症反應與臨床表現</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">神經發炎</span><span class="tag">代謝精神醫學</span><span class="tag">營養精神醫學</span><span class="tag">跨疾病</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🧠🔥</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>發炎性憂鬱症：病理生理學、臨床意涵與治療的進展回顧</h3>
+          <p class="journal-source">The Lancet Psychiatry (預估期刊) &middot; Inflammatory depression: a review of advances in pathophysiology, clinical implications, and treatment.</p>
+          <p>系統性回顧指出，系統性發炎是憂鬱症的重要病理機制，可能定義了一個特定的臨床亞型（發炎性憂鬱症）。此亞型患者對傳統療法反應較差，提示需採用針對性的抗發炎策略，包括藥物與營養補充劑。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">對抗憂鬱藥物反應不佳的憂鬱症患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">針對性抗發炎策略（藥物、營養品、運動）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">傳統單胺類神經傳遞質療法</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">臨床緩解率、炎症生物標記變化</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">神經發炎</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">☀️🧠</span>
+            <span class="utility-low">中高實用性</span>
+          </div>
+          <h3>維生素D補充與睡眠障礙合併輕度認知障礙者的認知功能改善</h3>
+          <p class="journal-source">Journal of Alzheimer's Disease (預估期刊) &middot; Vitamin D supplement intake is associated with better cognition in persons with sleep disturbance and mild cognitive impairment.</p>
+          <p>針對有睡眠問題的輕度認知障礙（MCI）患者研究發現，每日補充5000 IU以上的維生素D與較好的整體認知功能（MoCA分數）顯著相關，提示維生素D對這類高風險族群具有認知保護作用。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">合併睡眠障礙的輕度認知障礙患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">每日補充高劑量維生素D (&gt;5000 IU)</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未補充或低劑量維生素D者</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">認知評估分數（MoCA）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">認知功能</span><span class="tag">睡眠醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🤰🧬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>懷孕期間維生素D水平與後代自閉症特質及VDR基因多型性的關聯</h3>
+          <p class="journal-source">Molecular Psychiatry (預估期刊) &middot; The association between gestational vitamin D levels and offspring vitamin D receptor polymorphisms in autism-associated traits.</p>
+          <p>探討母體血清維生素D濃度、後代維生素D受體（VDR）基因型與兒童自閉症特質（11歲追蹤）的關聯。儘管整體症狀關聯不大，但發現早期高維生素D濃度與男性後代在事實導向行為上的負相關。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">懷孕母親及其11歲後代</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">母體血清維生素D濃度</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">維生素D受體基因型（TaqI, Fok1等）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">自閉症光譜狀況評量表（ASASC）分數</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">自閉症</span><span class="tag">維生素D</span><span class="tag">營養精神醫學</span><span class="tag">基因-環境互動</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🧲😔</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>鐵與憂鬱：周邊與大腦之間的交互作用</h3>
+          <p class="journal-source">Biological Psychiatry (預估期刊) &middot; From Iron to Depression: The Crosstalk Between the Periphery and Brain.</p>
+          <p>回顧文章探討了鐵在認知與情緒中的生理功能，特別聚焦於大腦與周邊鐵代謝的調控、腸道菌叢的影響以及下視丘-垂體-腎上腺軸的作用，揭示了鐵代謝失調作為憂鬱症潛在病理機制的新視角。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">憂鬱症患者與健康對照組</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">鐵代謝途徑干預（飲食、營養補充）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">非干預或對照組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">抑鬱症狀嚴重度、腦部鐵代謝指標</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">腸腦軸</span><span class="tag">營養精神醫學</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">🥗🏃</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Cosmos Caudatus（波羅蜜葉）補充與有氧運動對小鼠認知與神經保護的協同作用</h3>
+          <p class="journal-source">Journal of Nutritional Neuroscience (預估期刊) &middot; Effect of Cosmos Caudatus supplementation and aerobic exercise on selected neurobehaviour... in rats with mild cognitive impairment (MCI) induced by AlCl3.</p>
+          <p>研究方案探討了波羅蜜葉補充與有氧運動聯合應用對鋁中毒誘發認知障礙的保護作用，旨在評估抗氧化營養品與運動結合在神經保護中的協同效應。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">雄性大鼠（鋁中毒誘發MCI模型）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Cosmos Caudatus補充 + 有氧運動</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">單一干預或對照組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">認知行為測試（新物體辨識、高架十字迷宮）、神經病理變化</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">認知功能</span><span class="tag">多酚類</span><span class="tag">神經科學</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#8</span>
+            <span class="emoji-icon">🧠⚡</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>維生素D補充緩解缺血性中風後的抑鬱症：通過挽救IL-6介導的BDNF減少</h3>
+          <p class="journal-source">Brain, Behavior, and Immunity (預估期刊) &middot; Vitamin D mitigates post-stroke depression by rescuing IL-6-mediated BDNF reduction.</p>
+          <p>臨床與動物實驗均顯示，缺血性中風後抑鬱症患者維生素D水平偏低。補充維生素D可通過抑制炎症因子IL-6並提升腦源性神經營養因子（BDNF），有效減輕抑鬱症狀。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">缺血性中風患者與大鼠模型</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">維生素D補充</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">維生素D缺乏組或對照組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">抑鬱行為（糖水偏好、強迫游泳）、腦部BDNF與IL-6水平</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">憂鬱症</span><span class="tag">神經發炎</span><span class="tag">認知功能</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  
+
+  
+
+  
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：GLM-4.7-Flash</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
