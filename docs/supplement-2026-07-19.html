@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年7月19日</title>
+<meta name="description" content="2026年7月19日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年7月19日</span>
+        <span class="badge badge-count">📊 37 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日研究重點集中在微量營養素（如鎂、硒）與飲食型態對憂鬱症狀的改善，以及腸腦軸在心理健康中的角色。特別值得注意的是，針對嚴重憂鬱症患者的礦物質補充試驗顯示出顯著的臨床效益，而飲食干预（如抗發炎飲食與限制超加工食品）的預防效用也得到大數據支持。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧪</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>關鍵礦物質與神經精神健康的關聯：憂鬱與健康個體之比較評估</h3>
+          <p class="journal-source">期刊未提供 &middot; Analyzing the Role of Essential Minerals in Neuropsychiatric Health: A Comparative Assessment of Depressed Versus Healthy Individuals.</p>
+          <p>研究發現血清鎂、鋅與硒濃度與憂鬱嚴重度呈顯著負相關。嚴重憂鬱患者接受4週礦物質補充後，平均憂鬱症狀分數下降約50%，症狀嚴重度由「嚴重」降至「輕微」。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">215名憂鬱成人（含40名嚴重個案）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">一個月礦物質補充（鎂、鋅、硒）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無（比較組分析及基線對照）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">血清礦物質濃度與PHQ-9憂鬱量表分數變化</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">硒</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🥗</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>老年人飲食品質與憂鬱症狀：探討遺傳易感性與低度發炎的調節效應（模擬目標試驗）</h3>
+          <p class="journal-source">期刊未提供 &middot; Diet quality and depressive symptoms in older adults, assessing the effect modification by genetic predisposition and low-grade inflammation: a target trial emulation.</p>
+          <p>攝取大量超加工食品會增加老年人憂鬱症狀風險（RR=1.12），而攝取抗發炎飲食則顯著降低風險，此效果與基因易感性或低度發炎無關。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">7,220名70歲以上長者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">超加工食品指數 vs 抗發炎飲食</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑組（歷史對照/逆概加權法調整）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">憂鬱症狀發生風險比</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">飲食</span><span class="tag">代謝精神醫學</span><span class="tag">氧化壓力</span><span class="tag">老人精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🥜</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>杏仁對成人的心理健康與腸腦軸影響之12週隨機對照試驗</h3>
+          <p class="journal-source">期刊未提供 &middot; Almonds and their impact on mental health and the gut-brain axis in adults with symptoms of anxiety and depression: a 12-week randomized controlled trial.</p>
+          <p>12週每日56g杏仁攝取對輕中度焦慮憂鬱成人的量表分數改善有限，但能顯著改善功能性障礙（排便頻率），且在特定子集中減少堅硬糞便頻率。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">84名輕中度焦慮/憂鬱成人</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">每日56g杏仁</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">等熱量零食</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">焦慮/憂鬱症狀、功能性障礙、腸道菌叢</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">焦慮症</span><span class="tag">腸腦軸</span><span class="tag">營養精神醫學</span><span class="tag">飲食</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🧒</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>氧化-3脂肪酸加肌醇對治療情緒失調兒童憂鬱與躁症的隨機試驗</h3>
+          <p class="journal-source">期刊未提供 &middot; A randomized trial of omega-3 fatty acids plus inositol versus N-acetylcysteine for the treatment of depression and mania in emotionally dysregulated youth age 5-17 with and without autism traits.</p>
+          <p>比較Omega-3+肌醇與N-乙醯半胱胺酸（NAC）對兒少情緒失調的效果。Omega-3對憂鬱改善較佳，NAC對躁症改善較佳，且自閉特質可能會干擾NAC對躁症的療效。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">5-17歲有情緒失調的兒童與青少年</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">Omega-3+肌醇 vs NAC</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無（開放標籤雙組比較）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">憂鬱與躁症嚴重度（CDI, P-YMRS）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">焦慮症</span><span class="tag">ω-3脂肪酸</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🍄</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供 &middot; The gut-brain axis in Ganoderma lucidum's antidepressant effects in cancer comorbidity: A review.</p>
+          <p>回顧靈芝的抗憂鬱潛力，主要透過調節腸道菌叢、修正短鏈脂肪酸與色胺酸代謝路徑，進而降低發炎反應與改善神經內分泌功能。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">癌症患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">靈芝</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照/背景</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">憂鬱行為、腸道菌叢組成與代謝途徑</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">☕</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>咖啡作為粒線體健康的聚藥理調節劑：從分子機制到轉譯應用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>咖啡中多種生物活性成分透過激活AMPK/SIRT1和Nrf2等通路，協同增強粒線體功能與抗氧化能力，可能有助預防代謝與神經退化疾病。</p>
+          <div class="card-footer">
+            <span class="tag">粒線體功能</span><span class="tag">認知功能</span><span class="tag">多酚類</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🥗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>負責調節飲食品質與老年憂鬱之關聯的基因與發炎指標（目標試驗模擬）</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>老年人飲食中較高的超加工食品攝取量與憂鬱症狀風險增加有關，而抗發炎飲食則有保護作用。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">飲食</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>關鍵礦物質與神經精神健康的關聯：憂鬱與健康個體之比較評估</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>憂鬱患者血清鎂、硒濃度與症狀嚴重度呈負相關。嚴重憂鬱患者經4週礦物質補充後，症狀分數顯著下降。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">硒</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>氧化-3脂肪酸加肌醇對治療情緒失調兒童憂鬱與躁症的隨機試驗</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>Omega-3+肌醇和NAC均能改善兒少情緒失調的憂鬱與躁症，但自閉特質可能會影響NAC對躁症的效果。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">焦慮症</span><span class="tag">ω-3脂肪酸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>電子尼古丁系統使用者口腔真菌群落之比較宏基因組分析</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>電子菸使用者口腔真菌多樣性較高，且富含與適應壓力和DNA修復相關的基因，提示電子菸對口腔生態系統的廣泛破壞。</p>
+          <div class="card-footer">
+            <span class="tag">口腔健康</span><span class="tag">菌叢</span><span class="tag">交互作用</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧲</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>鎂與精神疾病：周邊與大腦間的交互作用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>綜述鐵與鐵硫簇在神經發育與大腦功能中的新作用，並探討其與憂鬱症、腸道菌叢及HPA軸的關聯。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>線蟲乳桿菌對高脂飲食肥胖小鼠脂肪生成的調節作用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>證明特定益生菌可透過調節腸道屏障、脂肪生成基因與抗發炎通路，改善肥胖小鼠的代謝功能。</p>
+          <div class="card-footer">
+            <span class="tag">代謝精神醫學</span><span class="tag">菌叢</span><span class="tag">肥胖</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👩‍🍼</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>人類面板菌叢與產後憂鬱：雙向孟德爾隨機化研究</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>研究發現特定面板菌種（如Acinetobacter）的基因預測水平與產後憂鬱風險存在關聯，但為探索性結果。</p>
+          <div class="card-footer">
+            <span class="tag">產後憂鬱</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🩸</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>癌症相關疲勞的生物學指標：老年男性癌症存活者</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>發現循環發炎標記物（CRP, IL-6, TNF-α）與癌因性疲勞程度呈正相關，並有特異的基因表現特徵。</p>
+          <div class="card-footer">
+            <span class="tag">疲勞管理</span><span class="tag">發炎</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🥗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>調節飲食品質與老年憂鬱之關聯的基因與發炎指標（目標試驗模擬）</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>老年人飲食中較高的超加工食品攝取量與憂鬱症狀風險增加有關，而抗發炎飲食則有保護作用。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">飲食</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>關鍵礦物質與神經精神健康的關聯：憂鬱與健康個體之比較評估</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>憂鬱患者血清鎂、硒濃度與症狀嚴重度呈負相關。嚴重憂鬱患者經4週礦物質補充後，症狀分數顯著下降。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">硒</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>氧化-3脂肪酸加肌醇對治療情緒失調兒童憂鬱與躁症的隨機試驗</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>Omega-3+肌醇和NAC均能改善兒少情緒失調的憂鬱與躁症，但自閉特質可能會影響NAC對躁症的效果。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">焦慮症</span><span class="tag">ω-3脂肪酸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>電子尼古丁系統使用者口腔真菌群落之比較宏基因組分析</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>電子菸使用者口腔真菌多樣性較高，且富含與適應壓力和DNA修復相關的基因，提示電子菸對口腔生態系統的廣泛破壞。</p>
+          <div class="card-footer">
+            <span class="tag">口腔健康</span><span class="tag">菌叢</span><span class="tag">交互作用</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧲</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>鐵與精神疾病：周邊與大腦間的交互作用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>綜述鐵與鐵硫簇在神經發育與大腦功能中的新作用，並探討其與憂鬱症、腸道菌叢及HPA軸的關聯。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>線蟲乳桿菌對高脂飲食肥胖小鼠脂肪生成的調節作用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>證明特定益生菌可透過調節腸道屏障、脂肪生成基因與抗發炎通路，改善肥胖小鼠的代謝功能。</p>
+          <div class="card-footer">
+            <span class="tag">代謝精神醫學</span><span class="tag">菌叢</span><span class="tag">肥胖</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👩‍🍼</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>人類面板菌叢與產後憂鬱：雙向孟德爾隨機化研究</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>研究發現特定面板菌種（如Acinetobacter）的基因預測水平與產後憂鬱風險存在關聯，但為探索性結果。</p>
+          <div class="card-footer">
+            <span class="tag">產後憂鬱</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🩸</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>癌症相關疲勞的生物學指標：老年男性癌症存活者</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>發現循環發炎標記物（CRP, IL-6, TNF-α）與癌因性疲勞程度呈正相關，並有特異的基因表現特徵。</p>
+          <div class="card-footer">
+            <span class="tag">疲勞管理</span><span class="tag">發炎</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">☕</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>咖啡作為粒線體健康的聚藥理調節劑：從分子機制到轉譯應用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>咖啡中多種生物活性成分透過激活AMPK/SIRT1和Nrf2等通路，協同增強粒線體功能與抗氧化能力，可能有助預防代謝與神經退化疾病。</p>
+          <div class="card-footer">
+            <span class="tag">粒線體功能</span><span class="tag">認知功能</span><span class="tag">多酚類</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🥗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>負責調節飲食品質與老年憂鬱之關聯的基因與發炎指標（目標試驗模擬）</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>老年人飲食中較高的超加工食品攝取量與憂鬱症狀風險增加有關，而抗發炎飲食則有保護作用。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">飲食</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>關鍵礦物質與神經精神健康的關聯：憂鬱與健康個體之比較評估</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>憂鬱患者血清鎂、硒濃度與症狀嚴重度呈負相關。嚴重憂鬱患者經4週礦物質補充後，症狀分數顯著下降。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">硒</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>氧化-3脂肪酸加肌醇對治療情緒失調兒童憂鬱與躁症的隨機試驗</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>Omega-3+肌醇和NAC均能改善兒少情緒失調的憂鬱與躁症，但自閉特質可能會影響NAC對躁症的效果。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">焦慮症</span><span class="tag">ω-3脂肪酸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">☕</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>咖啡作為粒線體健康的聚藥理調節劑：從分子機制到轉譯應用</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>咖啡中多種生物活性成分透過激活AMPK/SIRT1和Nrf2等通路，協同增強粒線體功能與抗氧化能力，可能有助預防代謝與神經退化疾病。</p>
+          <div class="card-footer">
+            <span class="tag">粒線體功能</span><span class="tag">認知功能</span><span class="tag">多酚類</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🥗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>負責調節飲食品質與老年憂鬱之關聯的基因與發炎指標（目標試驗模擬）</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>老年人飲食中較高的超加工食品攝取量與憂鬱症狀風險增加有關，而抗發炎飲食則有保護作用。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">飲食</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>關鍵礦物質與神經精神健康的關聯：憂鬱與健康個體之比較評估</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>憂鬱患者血清鎂、硒濃度與症狀嚴重度呈負相關。嚴重憂鬱患者經4週礦物質補充後，症狀分數顯著下降。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">鎂</span><span class="tag">鋅</span><span class="tag">硒</span><span class="tag">營養精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧒</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>氧化-3脂肪酸加肌醇對治療情緒失調兒童憂鬱與躁症的隨機試驗</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>Omega-3+肌醇和NAC均能改善兒少情緒失調的憂鬱與躁症，但自閉特質可能會影響NAC對躁症的效果。</p>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">焦慮症</span><span class="tag">ω-3脂肪酸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🍄</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>靈芝在癌症共病中憂鬱效果之腸腦軸機制</h3>
+          <p class="journal-source">期刊未提供</p>
+          <p>探討靈芝如何透過調節腸道菌叢、短鏈脂肪酸及色胺酸代謝路徑，發揮抗發炎與抗憂鬱效果。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">癌症</span><span class="tag">腸腦軸</span><span class="tag">菌叢</span><span class="tag">研究型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+              <span class="topic-name">營養精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">營養精神醫學</span><span class="keyword">微量營養素</span><span class="keyword">飲食干預</span><span class="keyword">腸腦軸</span><span class="keyword">憂鬱症</span></div></div>
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：GLM-4.7-Flash</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
