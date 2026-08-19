@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generate supplement research daily report HTML using Zhipu GLM-5-Turbo.
+ * Generate supplement research daily report HTML using NVIDIA Nemotron.
  * Reads papers JSON, analyzes with AI, generates styled HTML matching
  * Psychiatry-brain color scheme.
  *
@@ -11,10 +11,11 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { parseArgs } from "node:util";
 
-const API_BASE = "https://open.bigmodel.cn/api/coding/paas/v4";
-const MODELS = ["GLM-5-Turbo", "GLM-4.7", "GLM-4.7-Flash"];
-const MAX_TOKENS = 50000;
+const API_BASE = (process.env.NVIDIA_API_BASE || "https://integrate.api.nvidia.com/v1").replace(/\/+$/, "");
+const MODELS = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"];
+const MAX_TOKENS = 16384;
 const TIMEOUT_MS = 480_000;
+const MAX_RETRIES = 3;
 
 const SYSTEM_PROMPT = `你是營養補充劑與精神醫學研究的專業分析師。你的任務是：
 1. 從提供的論文清單中，分析出當日最重要的營養補充劑研究趨勢與亮點
@@ -179,80 +180,123 @@ function robustJsonParse(text) {
     }
   }
 
-  console.error("[WARN] All JSON repair attempts failed, returning minimal structure");
-  return {
-    date: "",
-    market_summary: "AI 分析結果解析失敗，請稍後再試。",
-    top_picks: [],
-    all_papers: [],
-    keywords: [],
-    topic_distribution: {},
-  };
+  console.error("[WARN] All JSON repair attempts failed");
+  return null;
 }
 
-async function analyzePapers(apiKey, papersData) {
-  const prompt = buildPrompt(papersData);
+function delay(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+function backoffMs(attempt) {
+  return Math.min(15 * attempt, 60) * 1000;
+}
+
+function isNetworkError(e) {
+  return e.name === "TimeoutError"
+    || e.name === "AbortError"
+    || e.name === "TypeError"
+    || /ETIMEDOUT|ENOTFOUND|ECONNRESET|ECONNREFUSED|fetch failed|network/i.test(e.message);
+}
+
+async function callModel(apiKey, model, prompt) {
   const headers = {
     Authorization: `Bearer ${apiKey}`,
     "Content-Type": "application/json",
   };
 
+  const payload = {
+    model,
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user", content: prompt },
+    ],
+    temperature: 1.0,
+    top_p: 0.95,
+    max_tokens: MAX_TOKENS,
+    chat_template_kwargs: { enable_thinking: false },
+  };
+
+  const resp = await fetch(`${API_BASE}/chat/completions`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  });
+
+  const bodyText = await resp.text().catch(() => "");
+
+  if (resp.status === 429) {
+    const retryAfter = parseInt(resp.headers.get("retry-after") || "", 10);
+    throw new Error(`RATE_LIMIT:${Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter : 60}`);
+  }
+
+  if (resp.status === 401 || resp.status === 403) {
+    throw new Error(`AUTH_FAILED:${resp.status}:${bodyText.slice(0, 200)}`);
+  }
+
+  if (!resp.ok) {
+    throw new Error(`HTTP_${resp.status}:${bodyText.slice(0, 200)}`);
+  }
+
+  let data;
+  try {
+    data = JSON.parse(bodyText);
+  } catch {
+    throw new Error("INVALID_JSON_RESPONSE");
+  }
+  return data?.choices?.[0]?.message?.content?.trim() || "";
+}
+
+async function analyzePapers(apiKey, papersData) {
+  const prompt = buildPrompt(papersData);
+
   for (const model of MODELS) {
-    for (let attempt = 0; attempt < 3; attempt++) {
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
       try {
-        console.error(`[INFO] Trying ${model} (attempt ${attempt + 1})...`);
+        console.error(`[INFO] Trying ${model} (attempt ${attempt + 1}/${MAX_RETRIES})...`);
 
-        const payload = {
-          model,
-          messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            { role: "user", content: prompt },
-          ],
-          temperature: 0.3,
-          top_p: 0.9,
-          max_tokens: MAX_TOKENS,
-        };
-
-        const resp = await fetch(`${API_BASE}/chat/completions`, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(payload),
-          signal: AbortSignal.timeout(TIMEOUT_MS),
-        });
-
-        if (resp.status === 429) {
-          const wait = 60_000 * (attempt + 1);
-          console.error(`[WARN] Rate limited, waiting ${wait / 1000}s...`);
-          await new Promise((r) => setTimeout(r, wait));
+        const content = await callModel(apiKey, model, prompt);
+        if (!content) {
+          console.error(`[WARN] Empty response from ${model} (attempt ${attempt + 1}), retrying...`);
+          await delay(backoffMs(attempt + 1));
           continue;
         }
 
-        if (!resp.ok) {
-          const body = await resp.text().catch(() => "");
-          console.error(`[ERROR] HTTP ${resp.status}: ${body.slice(0, 200)}`);
-          break; // try next model
-        }
-
-        const data = await resp.json();
-        const content = data?.choices?.[0]?.message?.content;
-        if (!content) {
-          console.error(`[WARN] Empty response from ${model}`);
-          break;
-        }
-
         const result = robustJsonParse(content);
+        if (!result) {
+          console.error(`[WARN] JSON parse failed on attempt ${attempt + 1}/${MAX_RETRIES}, retrying...`);
+          await delay(backoffMs(attempt + 1));
+          continue;
+        }
+
         result._model = model;
         console.error(
           `[INFO] Analysis complete: ${result.top_picks?.length || 0} top picks, ${result.all_papers?.length || 0} total`
         );
         return result;
       } catch (err) {
-        if (err.name === "TimeoutError") {
-          console.error(`[WARN] ${model} timed out on attempt ${attempt + 1}`);
+        if (err.message.startsWith("RATE_LIMIT:")) {
+          const base = parseInt(err.message.split(":")[1], 10);
+          const wait = Math.min(base * (attempt + 1), 180);
+          console.error(`[WARN] Rate limited (429), waiting ${wait}s...`);
+          await delay(wait * 1000);
           continue;
         }
-        console.error(`[ERROR] ${model} failed: ${err.message}`);
-        break;
+        if (err.message.startsWith("AUTH_FAILED:")) {
+          console.error(`[ERROR] Authentication failed: ${err.message}. Check that the NVIDIA_API_KEY repository secret is valid.`);
+          return null;
+        }
+        if (err.message.startsWith("HTTP_4")) {
+          console.error(`[ERROR] ${model}: ${err.message}`);
+          break;
+        }
+        if (isNetworkError(err)) {
+          console.error(`[WARN] Network/timeout error on attempt ${attempt + 1}: ${err.message}`);
+        } else {
+          console.error(`[ERROR] ${model} failed on attempt ${attempt + 1}: ${err.message}`);
+        }
+        await delay(backoffMs(attempt + 1));
       }
     }
   }
@@ -440,7 +484,7 @@ function generateHtml(analysis) {
       <div class="header-meta">
         <span class="badge badge-date">📅 ${dateDisplay}</span>
         <span class="badge badge-count">📊 ${totalCount} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA Nemotron</span>
       </div>
     </div>
   </header>
@@ -492,13 +536,13 @@ async function main() {
     options: {
       input: { type: "string" },
       output: { type: "string" },
-      "api-key": { type: "string", default: process.env.ZHIPU_API_KEY || "" },
+      "api-key": { type: "string", default: process.env.NVIDIA_API_KEY || "" },
     },
   });
 
   const apiKey = values["api-key"];
   if (!apiKey) {
-    console.error("[ERROR] No API key provided. Set ZHIPU_API_KEY env var or use --api-key");
+    console.error("[ERROR] No API key provided. Set NVIDIA_API_KEY env var or use --api-key");
     process.exit(1);
   }
 
