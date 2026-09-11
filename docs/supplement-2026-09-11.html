@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年9月11日</title>
+<meta name="description" content="2026年9月11日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月11日</span>
+        <span class="badge badge-count">📊 22 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA Nemotron</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日營養補充劑研究聚焦於腸腦軸機制、特定營養素與情緒認知功能的關聯（如維生素D、益生菌、葉酸），以及代謝精神醫學新證據，臨床轉化潛力逐漸顯現。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">☀️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>維生素D補充劑攝入與睡眠障礙伴有輕度認知障礙者的認知功能改善相關</h3>
+          <p class="journal-source"> &middot; Vitamin D supplement intake is associated with better cognition in persons with sleep disturbance and mild cognitive impairment.</p>
+          <p>在睡眠障礙伴有輕度認知障礙者中，每日攝取5000+ IU維生素D補充劑與較高的MoCA認知分數顯著相關，支持其作為預防認知衰退的潛在干預。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有睡眠障礙的輕度認知障礙者（MCI），平均年齡67.2歲</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">每日攝取5000+ IU維生素D補充劑</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未攝取維生素D補充劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">較高的Montreal Cognitive Assessment (MoCA) 分數（調整後平均增加3.78分，p=0.039）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">維生素D</span><span class="tag">認知功能</span><span class="tag">老年精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🦠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>益生菌Lactobacillus rhamnosus和Saccharomyces boulardii減輕LPS誘導的海馬體神經炎症與認知情感缺損</h3>
+          <p class="journal-source"> &middot; Lactobacillus rhamnosus and Saccharomyces boulardii Attenuate LPS-Induced Cognitive and Affective Dysfunction Associated with Hippocampal Neuroinflammatory and Neurochemical Alterations</p>
+          <p>兩種益生菌預防性給予顯著減輕小鼠海馬體中的神經炎症標誌物、改善神經營養與膽鹼能功能，並同時改善認知與焦慮抑鬱樣行為，支持其預防神經炎症相關認知障礙的潛力。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">雄性Wistar大鼠，經腹腔注射LPS誘導神經炎症模型</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">同時經口給予Saccharomyces boulardii或Lactobacillus rhamnosus益生菌</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">僅LPS處理組（對照）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">減少海馬體TLR4、NF-κB、TNF-α、IL-6、GFAP水平；增加BDNF、CREB；改善ACh/AChE平衡；減少凋亡蛋白；改善開放場、升高十字迷宮、強制游泳及新物識別行為</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">益生菌/精神益生菌</span><span class="tag">腸腦軸</span><span class="tag">神經發炎</span><span class="tag">認知功能</span><span class="tag">憂鬱症</span><span class="tag">焦慮症</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🩸</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>葉酸足夠度調整產前飲食品質與孕婦妊娠相關焦慮之關聯</h3>
+          <p class="journal-source"> &middot; Iron Adequacy Modifies the Association Between Prenatal Diet Quality and Pregnancy-Related Anxiety in Pregnant Women: A Cross-Sectional Study.</p>
+          <p>在鐵攝取足夠的孕婦中，較高的產前飲食品質顯著關聯較低的妊娠相關焦慮；鐵足夠度顯著調整此關聯（互動項B=-2.501, p=0.007），提示營養素不足可能掩蓋健康飲食的心理益處。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">293名土耳其伊斯坦布爾懷孕婦女，平均年齡29.6歲</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">產前飲食品質（透過Prenatal Diet Quality Index評估）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">飲食品質低者 vs 高者</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">僅在膳食鐵足夠者（達RDA百分比較高）中，飲食品質升高與PRAS焦慮分數降低顯著相關；互動項顯著</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">葉酸/甲基葉酸</span><span class="tag">營養精神醫學</span><span class="tag">焦慮症</span><span class="tag">社區精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🫀</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>腸道微生物在腎移植中的機制與對精準免疫抑制的影響</h3>
+          <p class="journal-source"> &middot; Gut Microbiota in Kidney Transplantation: Mechanistic Insights and Implications for Precision Immunosuppression.</p>
+          <p>腎移植後腸道微生物群失調（減少多樣性、致病菌擴增、SCFA產菌減少）經由腸腎軸影響排斥反應、免疫平衡與免疫抑制藥物代謝，提示微生物調整可能改善移植結果。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">61名HIV併遠端感覺性多發性神經病變（DSP）患者，93名HIV無DSP，64名無HIV無DSP的橫斷面隊列</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">腸道微生物群組成（16S rRNA測序）與血清細胞因子</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">HIV+DSP vs HIV-DSP vs 無HIV-DSP群組間微生物與炎症差異</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">HIV+DSP群腸道微生物顯著富含Enterocloster和Bacteroides_H屬；微生物log-ratio與年齡為DSP預測的最強因子（AUC=0.83）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">微生物體</span><span class="tag">神經發炎</span><span class="tag">免疫</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">📱</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>螢幕語音詞彙特徵分析可預測重度憂鬱症狀嚴重程度</h3>
+          <p class="journal-source"> &middot; Multilingual lexical feature analysis of spoken language for predicting major depression symptom severity.</p>
+          <p>智慧型手機錄音語音中五種可解讀的詞彙特徵（減少詞彙數、增加第一人稱複數代詞、降低正向詞使用）與憂鬱症狀嚴重程度顯著相關，且該模型結合人口學特徵後可改善PHQ-8預測準確度，支持語音 biomarker 的遠端監測潛力。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">來自英國、荷蘭和西班牙的467名參與者，共5846份智慧型手機語音錄音與PHQ-8分數</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">自然語語音樣本的詞彙特徵分析（線性混合效應模型）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">僅包含社會人口學與混雜變項的基線模型</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">五個詞彙特徵與PHQ-8顯著相關；加入詞彙特徵或向量嵌入後，預測準確度優於基線模型</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">認知功能</span><span class="tag">數位醫療</span><span class="tag">篩檢與評估</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🐟</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>Causal Relationship of Polyunsaturated Fatty Acids With Mental Disorders: A Systematic Review and Meta-analysis.</h3>
+          <p class="journal-source"></p>
+          <p>孟德爾隨機化meta分析顯示基因預測的高omega-3水平與降低憂鬱、雙相、精神分裂及強迫症風險因果相關，而高omega-6:omega-3比例則增加憂鬱與情緒障礙風險。</p>
+          <div class="card-footer">
+            <span class="tag">ω-3脂肪酸</span><span class="tag">憂鬱症</span><span class="tag">雙相情緒障礙</span><span class="tag">精神分裂症</span><span class="tag">強迫症</span><span class="tag">代謝精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌰</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>藥用蘑菇Varivax（馬栗子萃取）在成年斑馬魚中展現抗氧化與類抗抑鬱樣活性，機制涉及5-HT受體調節</h3>
+          <p class="journal-source"></p>
+          <p>標準化含20% escin的馬栗子萃取補充劑Varivax在斑馬魚中經尾巴 immobilisation 測試顯示類抗抑鬱樣行為（增加運動時間），且體外與體內實驗支持其經調節5-HT1A、5-HT2A、5-HT2A/2C、5-HT3A/3B受體發揮作用，效果可比肩氟西汀。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">藥草-藥物交互作用</span><span class="tag">神經科學</span><span class="tag">氧化壓力</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌾</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>類固醇代謝物T-2毒素在幼鼠中經海馬體氧化應壓-內質網應壓誤折導致神經凋亡並擾動腸道菌群，提示腸腦軸在其神經毒性中的角色</h3>
+          <p class="journal-source"></p>
+          <p>幼鼠經口給予T-2毒素28天導致學習與記憶受損，海馬體出現神經損失、氧化應壓（ROS、MDA上升；SOD、GSH下降）、內質網應壓活化（PERK-eIF2α-ATF4-CHOP路徑）與神經凋亡，並伴隨腸道屏障受損與菌群失調，支持腸腦軸在其神經毒性中的潛在貢獻。</p>
+          <div class="card-footer">
+            <span class="tag">神經發炎</span><span class="tag">氧化壓力</span><span class="tag">粒線體功能</span><span class="tag">腸腦軸</span><span class="tag">神經科學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>益生菌芽孢啟發的多屏障穿越口服藥物遞送系統針對帕金森氏症調節腸腦軸</h3>
+          <p class="journal-source"></p>
+          <p>受益生菌孢子殼蛋白在發芽時脫落並可重組為奈米粒子啟發，設計出經口給予後可穿越腸道黏膜、上皮及血腦關卡的藥物遞送系統：孢子腸道發芽調節腸道微生物與 serotonergic 訊號，而殼蛋白衍生奈米系統輸送至腦部減少氧化應壓，在帕金森氏症模型鼠中改善神經退化與行為缺損。</p>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">益生菌/精神益生菌</span><span class="tag">神經科學</span><span class="tag">帕金森氏症</span><span class="tag">奈米醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🥗</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>蛋白質攝取跨越一生：優化健康、功能與長壽</h3>
+          <p class="journal-source"></p>
+          <p>全食物植物為主飲食（WFPD）經改善微生物多樣性、增加短鏈脂肪酸、減少氧化應壓與炎症、增強胰島素敏感性，可同時預防心血管疾病、糖尿病、癌症與憂鬱；適當分配足夠蛋白質（可經由豆類、堅果、種子等植物來源達成）對生育、胎兒成長、哺乳、閉經後及老年維持瘦質量有益，並可藉由降低藥物依賴延長健康壽命。</p>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">蛋白質</span><span class="tag">憂鬱症</span><span class="tag">老年精神醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">❤️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>北非醉茄與胃腸-免疫-代謝通路在心血管健康中的新興角色：腸道微生物在小兒心臟科的重要性</h3>
+          <p class="journal-source"></p>
+          <p>雖成人心血管疾病中的腸道微生物研究較多，但其在兒童心臟健康中的角色才開始被重視：先天性心臟病、低氧、腸灌注改變、反覆使用抗生素與手術壓力等因易導致微生物擾動，進而經由代謝物、屏障功能、免疫訊息與腸道菌群影響心血管發育與功能，需要更多兒童縱貫與介入研究驗證其調整腸道菌群是否能改善心血管預後。</p>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">微生物體</span><span class="tag">兒少精神醫學</span><span class="tag">心血管</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦟</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>檸檬酸鈀奈米載體雙重輸送薑黃與α-叔檳榔烯增強對庫蚊之殺蟲活性，機制經由氧化應壓</h3>
+          <p class="journal-source"></p>
+          <p>薑甲基壳聚糖塗層奈米脂質載體同時裝載薑黃與α-叔檳榔烯，對庫蚊幼蟲展現較佳殺蟲活性（LC50 705.3 μg/mL），其作用機制為誘發顯著氧化應壓（增加超氧陰離子、脂質過氧化），同時複雜調整抗氧化防禦系統（SOD活性、TAC變化），最終導致幼蟲死亡，顯示其為生物降解且標的性強的天然殺蟲劑候選。</p>
+          <div class="card-footer">
+            <span class="tag">氧化壓力</span><span class="tag">多酚類</span><span class="tag">奈米醫學</span><span class="tag">殺蟲劑</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>雙歧桿菌偽鏈狀種AL44經調節腸腦軸緩解半乳糖誘導的認知障礙</h3>
+          <p class="journal-source"></p>
+          <p>益生菌Bifidobacterium pseudocatenulatum AL44給予D-galactose處理的老鼠顯著改善空間學習與記憶，減少海馬體神經損傷與神經炎症，上調BDNF、NeuN與突觸蛋白，並經調節Bcl-2/Bax/caspase-3路徑減少凋亡；其神經保護作用與腸道菌群重塑（富含Bacteroides）、屏障完整性及內毒素減少相關，並可經糞菌移植傳遞，證實腸道微生物變化參與其功效。</p>
+          <div class="card-footer">
+            <span class="tag">益生菌/精神益生菌</span><span class="tag">腸腦軸</span><span class="tag">認知功能</span><span class="tag">氧化壓力</span><span class="tag">神經發炎</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>黏質菌腸胃灌注緩解雙雄胺腺苷轉移酶突變小鼠模型的憂鬱樣行為</h3>
+          <p class="journal-source"></p>
+          <p>在16個月大雌性A53T突變α-結核蛋白轉基因（帕金森氏症模型）小鼠中，經口給予黏質菌（Akkermansia muciniphila）顯著減少強制游泳測試中的無動性並增加蔗糖偏好，表明改善憂鬱樣行為，且未影響運動功能、空間記憶或胃腸蠕動；機制上，該菌株在不同基因背景下呈現 sex-specific 效應：在對照株C57小鼠中增加血清5-HT並富含Lactobacillus taiwanensis；在突變株中則特異性增加海馬體5-HT水平，並伴隨縮氨酸/丁酸產菌Lachnospiraceae擴增與嘌啶降解通路激活，提示其經調節腸道菌群與5-HT訊號緩解帕金森氏症相關憂鬱非運動症狀。</p>
+          <div class="card-footer">
+            <span class="tag">益生菌/精神益生菌</span><span class="tag">憂鬱症</span><span class="tag">帕金森氏症</span><span class="tag">腸腦軸</span><span class="tag">5-HT</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚠️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>去靶向血漿代謝組學識別出與慢性精神分裂症患者自殺行為狀態相關的代謝物特徵</h3>
+          <p class="journal-source"></p>
+          <p>在慢性精神分裂症住院患者中，經無靶向血漿代謝組學與多變量建模識別出與自殺風險相關的代謝物特徵：保留六種代謝物（鞘氨醇、3-OH-TML、Ile-Leu+Leu-Ile、TML、牛磺酸、12-HETE）可構建探索性分類模型（AUC=0.774）；Gamma-Glu-Thr具有最高變數重要性（VIP=5.003）並與多種臨床量表相關，提示鞘氨脂、氨基酸代謝、谷胱甘肽與神經發炎通路在自殺行為中的潛在角色。</p>
+          <div class="card-footer">
+            <span class="tag">自殺防治</span><span class="tag">精神分裂症</span><span class="tag">代謝精神醫學</span><span class="tag">氧化壓力</span><span class="tag">神經發炎</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤰</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>產褥期憂鬱與產前25(OH)D劑量反應關聯：每增加1 ng/mL可降低風險25%</h3>
+          <p class="journal-source"></p>
+          <p>產前serum 25(OH)D水準與產後憂鬱（PPD）呈線性負相關：每增加1 ng/mL 25(OH)D，PPD風險降低25%（OR=0.75，95% CI: 0.68-0.82，p&lt;0.001）；最佳截斷點為24.26 ng/mL（敏感度67.11%，特異度85.20%），AUC為0.822，顯示其具備不錯的篩檢實用性，且陽光與口服補充劑皆具保護作用並與25(OH)D呈正向互動。</p>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">憂鬱症</span><span class="tag">產後憂鬱</span><span class="tag">產前照護</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>葡萄糖胺激素AKAP150在 nucleus accumbens D1型中 spiny 神經元中的表達調節二型糖尿病相關憂鬱樣行為，且為二甲基雙胍抗抑鬱效應的必要分子通路</h3>
+          <p class="journal-source"></p>
+          <p>二型糖尿病小鼠中， nucleus accumbens (NAc) D1-type 中 spiny 神經元 (D1-MSNs) 特異性下調A-kinase anchoring protein 150 (AKAP150)，其表達程度與憂鬱樣行為嚴重度負相關；在D1-MSNs中過表達野生型AKAP150可復原AMPA受體介導的突觸傳遞、正常化異常樹突棘重塑並緩解憂鬱樣行為，而過表達PKA結合缺陷 mutant 則無效；二甲基雙胍治療可選擇性恢復D1-MSNs中的AKAP150表達，改善突觸功能與樹突棘形態，緩解憂鬱樣行為，且遺傳或藥理斷裂AKAP150-PKA signalling 完全阻斷其抗抑鬱效應，證實AKAP150-PKA-AMPAR通路在NAc D1-MSNs中是二甲基雙胍抗抑鬱作用的必要分子中介。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">二型糖尿病</span><span class="tag">神經科學</span><span class="tag">分子機制</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💉</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>膽鹼減弱甲基苯丙胺復發誘發，機制經由 nucleus accumbens core 的 CAMKK2-AMPK 訊號傳導</h3>
+          <p class="journal-source"></p>
+          <p>膽鹼（Betaine）經預防性給予可顯著降低甲基苯丙胺（MA） priming 後的復發樣行為（conditioned place preference 測試），不影響 MA 的初始置鏡或 locomotor activity；其作用機制為在 nucleus accumbens (NAc) core 透過 calcium/calmodulin-dependent protein kinase kinase 2 (CAMKK2) 依賴的方式激活 adenosine monophosphate-activated protein kinase (AMPK)，且使用 AMPK 抑制劑 dorsomorphin 或 CAMKK2 抑制劑 STO-609 可 abolish 此效果，證實 CAMKK2-AMPK 路徑在 NAc core 中介導 betaine 抑制 MA 復發的關鍵訊號。</p>
+          <div class="card-footer">
+            <span class="tag">成癮</span><span class="tag">膽鹼</span><span class="tag">神經科學</span><span class="tag">AMPK</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🕷️</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>受創傷相關刺激啟發的相似度建模揭示恐懼心理表征的多維結構</h3>
+          <p class="journal-source"></p>
+          <p>以蜘蛛恐懼症為模型，從705名個體收集49,141次對314張蜘蛛相關圖片的兩兩相似度判斷，多維尺度分析（MDS）識別出一個5維表征空間，其中四個維度強烈預測恐懼評分並提供超越單純恐懼或厭惡的複雜資訊，顯示恐懼相關刺激的心理表征並非可簡單還原為傳統預設維度（如恐懼、厭惡），而是包含多層次知覺與情感資訊，此相似度建模框架可擴展用於其他恐懼相關刺激，有助於優化曝露療法與焦慮症治療策略。</p>
+          <div class="card-footer">
+            <span class="tag">焦慮症</span><span class="tag">心理治療</span><span class="tag">認知功能</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👵</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>老年憂鬱症患者六年隨訪中認知、身體與社會功能的發展軌跡</h3>
+          <p class="journal-source"></p>
+          <p>在晚年憂鬱（LLD）患者中，功能限制常隨症狀改善而持續存在，增加復發風險；六年追蹤研究顯示，不同功能領域（認知、移動、自我照顧、人際關係、家事、社會參與）的軌跡呈現異質性：多數人維持穩定的高或低至中度限制，但小亞群在移動、自我照顧與家事上顯著惡化，另一亞群在人際關係上顯著恢復；功能軌跡與症狀變化週常 weakly 對齊，且個體間跨域變化顯著，提示需個別化介入以改善長遠預後。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">老年精神醫學</span><span class="tag">認知功能</span><span class="tag">社會功能</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>HIV 患者遠端感覺性多發性神經病變與腸道微生物特徵相關：腸道失調可能增加神經病變易感性</h3>
+          <p class="journal-source"></p>
+          <p>在HIV感染者中，遠端感覺性多發性神經病變（DSP）與腸道微生物群組成顯著相關：HIV+DSP群腸道菌群較HIV-DSP群富含Enterocloster和Bacteroides_H屬；雖血清炎症標誌物無法區分HIV內DSP狀態，但腸道微生物log-ratio（由差異菌 taxon 導出）結合年齡成為DSP的強預測因子（AUC=0.83），提示腸道失調可能促進HIV相關神經病變發生，雖尚未證明 mediate 年齡效應，但支持腸腦軸在神經併發症中的角色。</p>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">微生物體</span><span class="tag">神經發炎</span><span class="tag">HIV</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧫</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>慢性心理壓力經腸道內毒血症-睾丸軸損害雄性小鼠精子品質</h3>
+          <p class="journal-source"></p>
+          <p>雄性小鼠經慢性不可預測輕度壓力（CUMS）10週後，腸道菌群失調（減少產丁酸菌如Lachnospiraceae）導致腸道屏障受損、內毒血症（升高LPS、LBP）、血睾障礙增加及睾丸TLR4/NF-κB訊號活化，進而損害精子品質；糞菌移植自壓力鼠可將此表型傳遞給健康受體，而口服給予鈉丁酸（NaB）可修復腸道屏障、抑制睾丸TLR4/NF-κB與促炎細胞因子，並救回精子品質，支持存在一條從腸道微生物經內毒血症至睾丸的病理軸。</p>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">氧化壓力</span><span class="tag">神經發炎</span><span class="tag">男性生殖</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+              <span class="topic-name">營養精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">益生菌/精神益生菌</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:63%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">腸腦軸</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:63%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">認知功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">維生素D</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">神經發炎</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">氧化壓力</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">維生素D</span><span class="keyword">益生菌</span><span class="keyword">葉酸</span><span class="keyword">腸腦軸</span><span class="keyword">認知功能</span><span class="keyword">憂鬱症</span><span class="keyword">ω-3脂肪酸</span></div></div>
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
