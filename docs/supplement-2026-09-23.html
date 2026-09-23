@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年9月23日</title>
+<meta name="description" content="2026年9月23日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月23日</span>
+        <span class="badge badge-count">📊 8 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA Nemotron</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text"></p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧫</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>益生菌Lactiplantibacillus plantarum PS128改善托雷特症兒童胃腸症狀並調節腸道微生物與循環microRNA</h3>
+          <p class="journal-source"> &middot; Adjunctive psychobiotic Lactiplantibacillus plantarum PS128 ameliorates gastrointestinal comorbidities and alters circulating miRNAs and gut microbiota in children with Tourette syndrome: a randomized controlled trial.</p>
+          <p>PS128顯著減輕胃腸不適（特別是上腹疼痛）並改變腸道微生物組成與特定microRNA表達，支持其作為托雷特症胃腸併發症的輔助治療潛力。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">4-18歲 Tourette syndrome 兒童</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">12週 Lactiplantibacillus plantarum PS128</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">胃腸不適顯著改善（特別是上腹疼痛），miR-199a-3p與miR-143-3p上調，Lactiplantibacillus增加</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">托雷特症</span><span class="tag">益生菌/精神益生菌</span><span class="tag">腸腦軸</span><span class="tag">微生物體</span><span class="tag">兒少精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">☀️</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>維生素D補充與睡眠障礙伴輕度認知障礙者認知功能改善相關</h3>
+          <p class="journal-source"> &middot; Vitamin D supplement intake is associated with better cognition in persons with sleep disturbance and mild cognitive impairment.</p>
+          <p>每日攝取5000+ IU維生素D者在認知評分（MoCA）上顯著優於未補充者，提示其在高風險群體中的潛在保護作用。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有睡眠障礙且疑似或診斷為輕度認知障礙（MCI）者，平均年齡67.2歲</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">自我報告維生素D補充（≥5000 IU/天）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未補充維生素D</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">補充組MoCA平均分數更高（調整後平均差3.78，p=0.039）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">認知功能</span><span class="tag">睡眠醫學</span><span class="tag">老年精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🤰</span>
+            <span class="utility-low">高（具體方案）實用性</span>
+          </div>
+          <h3>保甫益生元與心理益生飲食預防孕婦糖尿病女性產前產後憂鬱與焦慮的三臂隨機對照試驗方案</h3>
+          <p class="journal-source"> &middot; Effect of synbiotic supplementation and psychobiotic diet on prenatal and postnatal depression and anxiety in women with gestational diabetes: a three-arm randomised controlled trial protocol.</p>
+          <p>該方案旨在評估益生元+益生菌（synbiotic）或心理益生飲食對妊娠糖尿病女性產前憂鬱、產後憂鬱與焦慮的預防效果，聚焦腸腦軸機制。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">24-28週孕診斷為妊娠糖尿病且無顯著憂鬱的孕婦（n=102）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">益生菌膠囊（Group 1） vs 心理益生飲食（Group 2） vs 安慰劑膠囊（控制組）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">產前憂鬱（EPDS，38週 gestation）、產後憂鬱與焦慮（4-6週產後）、母體代謝指標、產產 outcomes</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">焦慮症</span><span class="tag">益生菌/精神益生菌</span><span class="tag">心理治療</span><span class="tag">營養精神醫學</span><span class="tag">代謝精神醫學</span><span class="tag">腸腦軸</span><span class="tag">孕產婦精神衛生</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">⚖️</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>維生素D缺乏與肥胖性哮喘患者憂鬱風險增加顯著相關，僅在超重/肥胖 subgroup 中達統計顯著</h3>
+          <p class="journal-source"> &middot; Vitamin D Deficiency Is Associated With Increased Depression Risk in Obese Asthma.</p>
+          <p>嚴重維生素D缺乏（&lt;25 nmol/L）者憂鬱風險比充足者高97%，此關聯僅在超重與肥胖哮喘患者中顯著，提示身體組成調節維生素D對情緒的影響。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">成人哮喘患者（n=4,890），依BMI分層</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">血清25(OH)D狀態（依嚴重程度分組）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">充足維生素D (≥75 nmol/L)</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">輕度缺乏：風險增加73%；嚴重缺乏：風險增加97%（僅超重/肥胖 subgroup 有效）</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">憂鬱症</span><span class="tag">哮喘</span><span class="tag">代謝精神醫學</span><span class="tag">老年精神醫學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🌿</span>
+            <span class="utility-low">低（前臨床）實用性</span>
+          </div>
+          <h3>單次ayahuasca給藥緩解大鼠早期生活應激導致的長期行為與神經化學異常</h3>
+          <p class="journal-source"> &middot; Single ayahuasca administration mitigates long-term behavioral and neurochemical effects of early-life stress in rats.</p>
+          <p>單次ayahuasca給藥顯著逆轉由母親剝奪（MD）引起的長期焦慮、抑郵樣行為、BDNF降低及氧化應激增加，支持其作為早期創傷相關精神疾病的潛在治療介入。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">經母親剝奪（MD）誘導抑鬱樣行為的Wistar大鼠</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">單次口服ayahuasca</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未處理對照組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">焦慮與抑郵樣行為改善，BDNF與單胺水平恢復，氧化應激標誌物下降</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">創傷後應激障礙 (PTSD)</span><span class="tag">氧化壓力</span><span class="tag">腸腦軸</span><span class="tag">神經科學</span><span class="tag">藥草-藥物交互作用</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🧪</span>
+            <span class="utility-low">低（基礎機制）實用性</span>
+          </div>
+          <h3>氧化應澈與塑膠析出物在星形膠細胞中改變代謝，並與憂鬱嚴重度及自殺念頭相關</h3>
+          <p class="journal-source"> &middot; Plastic leachates induce astrocyte metabolism remodeling and risk assessment of depressive disorder.</p>
+          <p>塑膠析出物獨特地改變星形膠細胞代謝（如增加二氫胸腺苷、減少中鏈脂肪酸代謝），且這些變數與憂鬱嚴重度負相關、自殺念頭正相關，提示環境毒素可能經astrocyte代謝參與憂鬱致病。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">經10 μM Dex處理建立憂鬱相關模式的人類星形膠細胞</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">食品包裝塑膠析出物暴露</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">僅Dex處理組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">二氫胸腺苷↑（FC 3.4），中鏈脂肪酸代謝↓（FC 0.4），與PHQ-9負相關、SIQ正相關</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">自殺防治</span><span class="tag">氧化壓力</span><span class="tag">代謝精神醫學</span><span class="tag">環境健康</span><span class="tag">神經發炎</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">🦠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>腸道細菌Prevotella histicola透過促進脂質滴�自ophagy與抑制ER壓力改善代謝性脂肪肝</h3>
+          <p class="journal-source"> &middot; Prevotella histicola improves metabolic-associated fatty liver disease by promoting lipid droplet autophagy and inhibiting ER stress.</p>
+          <p>Prevotella histicola給藥減少高脂飲食誘導的肝重度、脂肪變性與炎症，機制上經ATG14依賴的脂質滴�自ophagy與抑制IRE1α-JNK訊號傳導，支持其作為腸腦軸相關代謝疾病的益生菌候補。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">高脂飲食誘導MAFLD的小鼠</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">經口給予Prevotella histicola</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">減少體重增長、空腹血糖升高、肝蒲醇accumulation、肝損傷；上調自ophagy標誌物，下調ER壓力訊號</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">代謝精神醫學</span><span class="tag">益生菌/精神益生菌</span><span class="tag">氧化壓力</span><span class="tag">粒線體功能</span><span class="tag">腸腦軸</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#8</span>
+            <span class="emoji-icon">👶</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>維生素D狀態與自閉症學前兒童前額葉興奮-抑制平衡及功能連結顯著相關</h3>
+          <p class="journal-source"> &middot; Serum vitamin D status is associated with prefrontal excitation-inhibition balance and functional connectivity in preschool children with autism spectrum disorder.</p>
+          <p>維生素D缺乏與前額葉GABA+/Glx比值異常及前額葉中心功能連結改變相關，嚴重自閉症 subgroup 顯示GABA+/tCr升高、Glx/tCr升高但GABA+/Glx下降，提示維生素D可能經調節神經抑制參與自閉症神經發展。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">24-72個月自閉症兒童（n=244），依病情嚴重度分層</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">血清25(OH)D狀態（缺乏 vs 充足）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">充足維生素D組</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">輕中度組：缺乏組GABA+/tCr↓、GABA+/Glx↓、Glx/tCr↑；重度組：GABA+/tCr↑、Glx/tCr↑、GABA+/Glx↓，伴前額葉連結改變</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">自閉症</span><span class="tag">兒少精神醫學</span><span class="tag">營養精神醫學</span><span class="tag">神經發炎</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  
+
+  
+
+  
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
