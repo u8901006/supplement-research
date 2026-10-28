@@ -12,7 +12,7 @@ import { dirname } from "node:path";
 import { parseArgs } from "node:util";
 
 const API_BASE = (process.env.NVIDIA_API_BASE || "https://integrate.api.nvidia.com/v1").replace(/\/+$/, "");
-const MODELS = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"];
+const MODELS = (process.env.NVIDIA_MODELS || "nvidia/nemotron-3.5-lightning-30b-a3b,deepseek-ai/deepseek-v4.1-flash").split(",").map(s => s.trim()).filter(Boolean);
 const MAX_TOKENS = 16384;
 const TIMEOUT_MS = 480_000;
 const MAX_RETRIES = 3;
