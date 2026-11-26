@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Research &middot; 營養補充劑研究日報 &middot; 2026年11月26日</title>
+<meta name="description" content="2026年11月26日 營養補充劑研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.4s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 12px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💊</div>
+    <div class="header-text">
+      <h1>Supplement Research &middot; 營養補充劑研究日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年11月26日</span>
+        <span class="badge badge-count">📊 29 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA Nemotron</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日研究顯示個體化營養介入在肥胖、心臟病與精神健康領域呈現顯著趨勢。其中以 omega-3、維生素D、益生菌與天然活性化合物（如薑黃、藏紅花）為核心研究焦點，特別是個體化營養與精神藥理干預之間的相互作用成為新熱點。同時，腸腦軸、氧化壓力與炎症通路在神經精神藥理研究中獲得重視，反映了從傳統補劑到功能性神經科學介入的轉變。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div><div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Nutraceuticals and phytoceuticals for the treatment of major depressive disorder: a systematic review and network meta-analysis</h3>
+          <p class="journal-source">Systematic review and network meta-analysis &middot; Nutraceuticals and phytoceuticals for the treatment of major depressive disorder: a systematic review and network meta-analysis</p>
+          <p>分析163項RCT，發現 EPA、維生素D3 及 St. John's-wort-extract-ZE117 在治療憂鬱症方面具超大效果，其中 EPA (SMD=-1.67) 為最有力證據，顯示特定營養補充劑在治療治療憂鬱症中具有重要潛力。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">主要針對主要抑鬱症 (MDD) 成人患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">包括 EPA、維生素D3、St. John's-wort-extract-ZE117 等各類營養補充劑</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">與安慰劑或常規抗憂鬱藥物治療為對照</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要結論：多種分子/類別在改善抑鬱症狀、治療回應與停藥容olerability 方面優於安慰劑，但存在極大異質性</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">營養精神醫學</span><span class="tag">omega-3脂肪酸</span><span class="tag">維生素D</span><span class="tag">network meta-analysis</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">👨‍🔬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Personalized Nutrition for Cardiometabolic Prevention: Integrating Multi-Omics, Digital Health, Functional Foods, and the Gut Microbiome</h3>
+          <p class="journal-source">Personalized nutrition review &middot; Personalized Nutrition for Cardiometabolic Prevention: Integrating Multi-Omics, Digital Health, Functional Foods, and the Gut Microbiome</p>
+          <p>綜述個體化營養在心臟代謝預防中的應用，強調數位健康、功能性食品與腸道微生物體的整合作用，指出雖有潛力但長期臨床效益驗證不足，存在驗證、成本與數位�鶸溝通等挑戰。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">一般成人或有心臟代謝疾病風險人群</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">個體化營養方案（包含數位健康、功能性食品、益生菌等）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">傳統均衡飲食或一般補充方案</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">心臟代謝健康指標改善與慢性病預防</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">腸腦軸</span><span class="tag">ω-3脂肪酸</span><span class="tag">功能性食品</span><span class="tag">數位健康</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">💪</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Research Progress on Exercise Combined with Micronutrients Regulating Oxidative Stress in Depression</h3>
+          <p class="journal-source">Narrative review &middot; Research Progress on Exercise Combined with Micronutrients Regulating Oxidative Stress in Depression</p>
+          <p>系統性探討運動與微量營養素（如銻、硒、鎂、鐵、維生素D）在調節抑鬱症相關氧化應激、神經炎症、線粒體功能與突觸塑性中的協同效應，提出「條件性互補」模型作為最合理整合方案。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">抑鬱症患者或高風險人群</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">運動訓練結合微量營養素補充</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">單純運動或單純微量營養素補充</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">改善抑鬱症狀、氧化壓證標誌與相關生物學通路調節</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">氧化壓力</span><span class="tag">微量元素</span><span class="tag">腸腦軸</span><span class="tag">Nrf2/Keap1/ARE</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">📊</span>
+            <span class="utility-low">低實用性</span>
+          </div>
+          <h3>Obesity and Associated Factors Among Chinese University Freshmen: A Multicentre Cross-Sectional Study</h3>
+          <p class="journal-source">Multicentre cross-sectional study &middot; Obesity and Associated Factors Among Chinese University Freshmen: A Multicentre Cross-Sectional Study</p>
+          <p>在16,092名中國新生生中，發現10.53%患有肥胖症，主要相關因素包括女性性別、父母肥胖、少量攝食、進食速度慢、少運動、間斷進食、無戀愛經驗與低水攝取，並建立具備弱預測能力（AUC 0.658）的風險模型。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">中國大學新生（16-19歲）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">未涉及特定介入，為觀察性研究</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無對照組，為橫斷面研究</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">識別大學生肥胖相關風險因子，發現飲食習慣（食量、進食速度）與體力活動為關鍵可改變因素</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">代謝精神醫學</span><span class="tag">肥胖</span><span class="tag">大學生健康</span><span class="tag">飲食習慣</span><span class="tag">生活方式</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>Effect of vitamin D supplementation on sexual function in women with type 2 diabetes: Study protocol for a randomized, double-blind, placebo controlled clinical trial</h3>
+          <p class="journal-source">Clinical trial protocol &middot; Effect of vitamin D supplementation on sexual function in women with type 2 diabetes: Study protocol for a randomized, double-blind, placebo controlled clinical trial</p>
+          <p>設計一項隨機、雙盲、安慰劑對照試驗，檢驗每週 50,000 IU 維生素D補充在12週後對2型糖尿病女性性功能的影響，以Female Sexual Function Index (FSFI) 作為主要結論結論。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text"> reproductive-age women with type 2 diabetes</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">每週維生素D 50,000 IU</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要結論：變化在 total FSFI score from baseline to week 13</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">性功能</span><span class="tag">2型糖尿病</span><span class="tag">隨機對照試驗</span><span class="tag">臨床試驗</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🔬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>Association of Thyroid-Stimulating Hormone with Thyroid Nodules Across Different Drinking-Water Iodine Concentrations: Cross-Sectional Analyses in Chinese Populations</h3>
+          <p class="journal-source">Cross-sectional analysis &middot; Association of Thyroid-Stimulating Hormone with Thyroid Nodules Across Different Drinking-Water Iodine Concentrations: Cross-Sectional Analyses in Chinese Populations</p>
+          <p>發現TSH水平與甲狀腺結節之間的負向關係受飲水碘濃度顯著調節，在碘充足區TSH與較低可能性有關，提示環境碘狀況需納入解讀TSH-甲狀腺結節關聯之際。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">中國 Anhui 及 Shandong 省居民</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">觀察性分析，無特定介入</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">按飲水碘濃度分層（缺乏、充足、過量）</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">TSH與甲狀腺結節存在與否、結節數量之間的調節效應</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">甲狀腺</span><span class="tag">碘營養</span><span class="tag">流行病學</span><span class="tag">環境因子</span><span class="tag">中國流行病學</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">👶</span>
+            <span class="utility-low">低實用性</span>
+          </div>
+          <h3>A Systematic Review of Neuroimaging Evidence on Human Milk Oligosaccharides and Neurodevelopment: Brain Structure, Metabolism, Mechanistic Insights, and Future Directions</h3>
+          <p class="journal-source">Neuroimaging systematic review &middot; A Systematic Review of Neuroimaging Evidence on Human Milk Oligosaccharides and Neurodevelopment: Brain Structure, Metabolism, Mechanistic Insights, and Future Directions</p>
+          <p>批判性評估人奶寡醣 (HMO) 与 neuroimaging 结果的關聯，發現目前多為動物模型（小豬）證據，人類干預研究不足，雖有潛在代謝影響但未建立因果改善發展之證據。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">乳兒/嬰兒（透過母乳攄取）</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">人奶寡醣 (HMO) 暴露</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無/HMO 不同結構比較</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">腦結構、微觀組織與神經化學譜變化</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">人奶寡醣</span><span class="tag">嬰兒營養</span><span class="tag">神經發展</span><span class="tag">磁共振</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+<div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#8</span>
+            <span class="emoji-icon">🌿</span>
+            <span class="utility-low">低實用性</span>
+          </div>
+          <h3>Valerian, chamomile, and lavender for insomnia and sleep disturbance: a narrative review of mechanisms, clinical efficacy, and safety</h3>
+          <p class="journal-source">Botanical review &middot; Valerian, chamomile, and lavender for insomnia and sleep disturbance: a narrative review of mechanisms, clinical efficacy, and safety</p>
+          <p>綜述三種常見助眠草藥（貓薄荷、洋甘菐、薰衣草）的機制與臨床證據，發現證據有限，尤其貓薄荷與洋甘菐效果不穩定，薰衣草（Silexan）主要透過降低焦慮改善睡眠，整體不支持作為認知行為治療失眠 (CBT-I) 的替代方案。</p>
+          <div class="pico-grid">
+            <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">成人失眠或睡眠困擾患者</span></div>
+            <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">草藥提取物（貓薄荷、洋甘菐、薰衣草）</span></div>
+            <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑或認知行為治療失眠 (CBT-I)</span></div>
+            <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主觀/客觀睡眠品質、入睡潛時、總睡眠時間</span></div>
+          </div>
+          <div class="card-footer">
+            <span class="tag">睡眠障礙</span><span class="tag">草藥</span><span class="tag">助眠</span><span class="tag">認知行為治療失眠</span><span class="tag">植物藥理</span>
+            <a href="#" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div><div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>Real-World Twelve-Month Weight Loss Outcomes in a Comprehensive Obesity Care Program Utilizing Individualized Nutrition Therapy and Incretin-Based Obesity Medications</h3>
+          <p class="journal-source">Obesity care program</p>
+          <p>在4269名肥胖成年人中，VINT+IOM 組（個人化低碳水飲食+增重藥物）相比 IOM 組在GLP-1 naive 患者中顯示額外 3.0kg 與 5.2kg 額外減重，顯示個人化營養療法可顯著增進增重藥物之效果。</p>
+          <div class="card-footer">
+            <span class="tag">肥胖</span><span class="tag">個人化營養</span><span class="tag">增重藥物</span><span class="tag">GLP-1</span><span class="tag">實證醫學</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👨‍🔬</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Personalized Nutrition for Cardiometabolic Prevention: Integrating Multi-Omics, Digital Health, Functional Foods, and the Gut Microbiome</h3>
+          <p class="journal-source">Personalized nutrition review</p>
+          <p>綜述個體化營養在心臟代謝預防中的應用，強調數位健康、功能性食品與腸道微生物體的整合作用，指出雖有潛力但長期臨床效益驗證不足，存在驗證、成本與數位鶸溝通等挑戰。</p>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">腸腦軸</span><span class="tag">ω-3脂肪酸</span><span class="tag">功能性食品</span><span class="tag">數位健康</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💪</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Research Progress on Exercise Combined with Micronutrients Regulating Oxidative Stress in Depression</h3>
+          <p class="journal-source">Narrative review</p>
+          <p>系統性探討運動與微量營養素（如銻、硒、鎂、鐵、維生素D）在調節抑鬱症相關氧化應激、神經炎症、線粒體功能與突觸塑性中的協同效應，提出「條件性互補」模型作為最合理整合方案。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">氧化壓力</span><span class="tag">微量元素</span><span class="tag">腸腦軸</span><span class="tag">Nrf2/Keap1/ARE</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Psychobiotic modulation of the microbiome-gut-brain axis: A systematic review of the literature</h3>
+          <p class="journal-source">Microbiome-gut-brain systematic review</p>
+          <p>系統性探討精神益生菌介入在治療主要抑鬱症（MDD）中的證據，發現部分菌株與劑量顯示出優於安慰劑的症狀減少，但大多數研究品質低，診斷與治療回應模型缺乏外部驗證，仍屬實驗階段。</p>
+          <div class="card-footer">
+            <span class="tag">憂鬱症</span><span class="tag">精神益生菌</span><span class="tag">腸腦軸</span><span class="tag">診斷生物標記</span><span class="tag">低證據等級</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌞</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Demographic, Lifestyle, and Metabolic Correlates of Vitamin D Status in Young Bahraini Adults: A Cross-Sectional Study</h3>
+          <p class="journal-source">Cross-sectional study</p>
+          <p>在262名巴林青年成年人中，發現42.4%維生素D缺乏，主要相關因子包括女性性別、年齡、樣本月份與BMI，調整膠固後發現胰島素抵抗是關鍵調節因子，而自報日曬量無顯著關聯。</p>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">青年健康</span><span class="tag">胰島素抵抗</span><span class="tag">流行病學</span><span class="tag">跨國研究</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🤰</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Sugar-Sweetened Beverages in Pregnancy and Fetal Growth: A Narrative Review</h3>
+          <p class="journal-source">Narrative review</p>
+          <p>敘述性評估母體攝取糖分飲料對胎兒生長的影響，發現關聯不一致，有關聯大齡兒/巨大兒的風險，另則報告較低出生體重或小齡兒風險，證實飲料定義、暴露時間與母體代謝特徵是影響結果的重要來源。</p>
+          <div class="card-footer">
+            <span class="tag">懷孕</span><span class="tag">糖分飲料</span><span class="tag">胎兒生長</span><span class="tag">敘述性綜述</span><span class="tag">產科營養</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📈</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Isolated Elevated One-Hour Plasma Glucose (&gt;=133 mg/dL) Is Associated with Insulin Resistance and Impaired beta-Cell Compensation in Children and Adolescents with Overweight or Obesity Without Prediabetes</h3>
+          <p class="journal-source">Paediatric endocrinology</p>
+          <p>研究347名兒童及青少年，發現單純一小時血糖&gt;=133 mg/dL 者雖不符合傳統前驅病標準，卻表現出顯著更高的胰島素抵抗與β-細胞補償功能受損，作為早期代謝風險偵測潛在生物標記。</p>
+          <div class="card-footer">
+            <span class="tag">血糖調節</span><span class="tag">青少年肥胖</span><span class="tag">胰島素抵抗</span><span class="tag">β-細胞功能</span><span class="tag">前驅病簽識</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">👨‍🔬</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Personalized Nutrition for Cardiometabolic Prevention: Integrating Multi-Omics, Digital Health, Functional Foods, and the Gut Microbiome</h3>
+          <p class="journal-source">Personalized nutrition review</p>
+          <p>綜述個體化營養在心臟代謝預防中的應用，強調數位健康、功能性食品與腸道微生物體的整合作用，指出雖有潛力但長期臨床效益驗證不足，存在驗證、成本與數位鶸溝通等挑戰。</p>
+          <div class="card-footer">
+            <span class="tag">營養精神醫學</span><span class="tag">腸腦軸</span><span class="tag">ω-3脂肪酸</span><span class="tag">功能性食品</span><span class="tag">數位健康</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🦠</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>High CLA-producing Lactiplantibacillus plantarum MNN1 alleviates irritable bowel syndrome through activation of intestinal PPARα signaling pathway.</h3>
+          <p class="journal-source">IBS microbiome study</p>
+          <p>發現高CLA產生乳桿菌 MNN1 在小鼠IBS模型中透過激活腸道PPARα信號通路，緩解腸易激綜合症症狀、改善腸道屏障完整性、調節腦外顯熒光行為與降低腦源性corticosterone水平。</p>
+          <div class="card-footer">
+            <span class="tag">腸易激綜合症</span><span class="tag">益生菌</span><span class="tag">CLA</span><span class="tag">腸道PPARα</span><span class="tag">腸腦軸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏋️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Short-term Rhodiola rosea supplementation improves premenstrual symptoms, reaction time, and perceived exertion in female taekwondo athletes: a randomised double-blind placebo-controlled trial.</h3>
+          <p class="journal-source">Athletic performance trial</p>
+          <p>24名具有中重度月經前症狀的女足踢毽選手接受500mg/day Rhodiola rosea提取物10天補充，結果顯著減輕月經前症狀（包括易怒、抑鬱、焦慮等），並改善反應時間（-60ms），但對有氧表現無顯著影響。</p>
+          <div class="card-footer">
+            <span class="tag">月經前症候群</span><span class="tag">Rhodiola rosea</span><span class="tag">運動表現</span><span class="tag">雙盲安慰劑對照</span><span class="tag">運動營養</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧠</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>BDNF-mediated amelioration of sleep disruption-induced behavioral disorders by Ginkgo biloba</h3>
+          <p class="journal-source">Neuropharmacology</p>
+          <p>在睡眠剝奪大鼠模型中，銀杏葉提取物透過促進腦源性神經營養因子 (BDNF) 依賴性神經可塑性，改善學習與記憶障礙，開啟利用天然補劑調節睡眠剝奪引起之行為缺陷之可能性。</p>
+          <div class="card-footer">
+            <span class="tag">銀杏葉</span><span class="tag">BDNF</span><span class="tag">睡眠剝奪</span><span class="tag">認知功能</span><span class="tag">動物研究</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>Biotin intake and mental health: findings from a large population-based cohort and biological insights from hippocampal and gut-brain pathways</h3>
+          <p class="journal-source">UK Biobank cohort study</p>
+          <p>利用 UK Biobank 前瞻性隊列，發現生物素攝取於第二四分位與主要憂鬱症風險降低 15%、第三四分位與焦慮症風險降低 14%，最低風險出現在每日約40-50 μg攝取水平，並顯示與腦白質微觀組織（縫合-海馬束）有正向關聯。</p>
+          <div class="card-footer">
+            <span class="tag">生物素</span><span class="tag">心理健康</span><span class="tag">UK Biobank</span><span class="tag">白質完整性</span><span class="tag">腸腦軸</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🚫</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Neonicotinoids and Mental Health: Mechanistic, Preclinical and Epidemiological Evidence for a Transdiagnostic Neurodevelopmental Risk</h3>
+          <p class="journal-source">Environmental neuropsychiatry review</p>
+          <p>系統性綜述蚕農藥殘留與心理健康關聯，發現蚕農藥通過啉ergic 通路、氧化應激、腸道微生物體改變與血腦屏障破壞影響認知、情緒與獎賞通路，強調其作為未被認識的環境風險因子，但人類數據仍不足以因果推論。</p>
+          <div class="card-footer">
+            <span class="tag">蚕農藥</span><span class="tag">心理健康</span><span class="tag">環境毒性</span><span class="tag">神經發展</span><span class="tag">跨精神病證</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>A randomized trial of omega-3 fatty acids plus inositol versus N-acetylcysteine for the treatment of depression and mania in emotionally dysregulated youth age 5-17 with and without autism traits</h3>
+          <p class="journal-source">Child & adolescent psychiatry</p>
+          <p>6週雙盲試驗比較 omega-3+inositol 與 N-acetylcysteine (NAC) 在情緒調節困擾青少年的效果，結果顯示兩者皆有 modest improvement，但 O3I 在組內改善憂鬱症狀，NAC 在組內改善躁症狀，且自閉症特徵存在時 NAC 對躁症更有效。</p>
+          <div class="card-footer">
+            <span class="tag">青少年</span><span class="tag">憂鬱症</span><span class="tag">躁症</span><span class="tag">omega-3</span><span class="tag">inositol</span><span class="tag">NAC</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Evaluating the Usability of an AI-Based Nutrition App Among Female Breast Cancer Survivors in Philadelphia, PA, USA: The CANEAT Pilot Focus Group Study</h3>
+          <p class="journal-source">Digital health usability</p>
+          <p>10名乳腺癌存活者測試 CANEAT AI app，均系统使用量分 (SUS) 得分 84.25 (&gt;70為可接受)，主要優勢在文化相關性、預算內食譜與地理可行性，主要缺失為未處理輻射療法副作用。</p>
+          <div class="card-footer">
+            <span class="tag">AI營養app</span><span class="tag">乳腺癌存活者</span><span class="tag">系統使用量分</span><span class="tag">數位健康</span><span class="tag">癌後營養</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>Probiotic-Botanical Combination Modulates Neuroinflammatory and Neurochemical Pathways in an LPS-Induced In Vitro Gut-Brain Axis Model</h3>
+          <p class="journal-source">In vitro gut-brain model</p>
+          <p>人腸黏膜 Caco-2 細胞與腦器官球共 cultures，聯合益生菌與植物提取物處理顯著改善腸道屏障完整性、減少氧化應激，並調節 LPS 誘導下之神經炎症、氧化應激與神經遞質（谷氨酸、GABA、血清素），提供腸腦軸干預之細胞機制證據。</p>
+          <div class="card-footer">
+            <span class="tag">腸腦軸</span><span class="tag">益生菌</span><span class="tag">植物提取物</span><span class="tag">神經炎症</span><span class="tag">體外模型</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🛡️</span>
+            <span class="utility-low utility-sm">low</span>
+          </div>
+          <h3>Skin Microbiota-Responsive Metabolites Mitigate Radiation-Induced Skin Injury and Promote Cutaneous Repair</h3>
+          <p class="journal-source">Radiation dermatology</p>
+          <p>三種斯裡笈菌屬代謝物（二甲基甘氨酸、尿苷、L-天冬氨酸）在低微몰濃度下增強角質細胞克隆存活率、緩減輻射誘導細胞傷害，並加速小鼠傷口愈合與減少炎症細胞浸潤，雖不建議 S. aureus 污染有益，但具潛在保護意義。</p>
+          <div class="card-footer">
+            <span class="tag">輻射傷害</span><span class="tag">皮膚代謝物</span><span class="tag">傷口愈合</span><span class="tag">菌群代謝物</span><span class="tag">皮膚再生</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧪</span>
+            <span class="utility-low utility-sm">low</span>
+          </div>
+          <h3>Selenium Status, GPX1 rs1050450 and SELENOP rs3877899 Polymorphisms in Schizophrenia: A Case-Control Study</h3>
+          <p class="journal-source">Schizophrenia case-control</p>
+          <p>39名精神分裂症男性患者與40名對照組，發現患者血漿硒濃度顯著較低 (63.89 vs 74.33 μg/L)，谷蛋白過氧化物酵素1 活性也較低，雖未發現特定基因多型顯著關聯硒狀況，但證實精神分裂症伴隨硒穩態受損。</p>
+          <div class="card-footer">
+            <span class="tag">精神分裂症</span><span class="tag">硒</span><span class="tag">GPX1</span><span class="tag">SELENOP</span><span class="tag">酸化酶活性</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌫️</span>
+            <span class="utility-low utility-sm">low</span>
+          </div>
+          <h3>Exposure to Ambient Fine Particulate Matter (PM2.5) Increases Vulnerability to Stress-Induced Depression in Mice, Potentially via the BDNF-CREB Signaling Pathway</h3>
+          <p class="journal-source">Environmental neuroscience</p>
+          <p>3個月PM2.5 曝露後，小鼠慢性壓力誘導憂鬱樣行為，影像顯示核貝殼、視葉與嗅球有結構與功能改變，機制涉及 BDNF-CREB 信號通路下調，證實環境污染是誘發憂鬱易感性之促成因子。</p>
+          <div class="card-footer">
+            <span class="tag">PM2.5</span><span class="tag">環境污染</span><span class="tag">憂鬱症</span><span class="tag">BDNF-CREB</span><span class="tag">空氣污染</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">high</span>
+          </div>
+          <h3>Effect of vitamin D supplementation on sexual function in women with type 2 diabetes: Study protocol for a randomized, double-blind, placebo controlled clinical trial</h3>
+          <p class="journal-source">Clinical trial protocol</p>
+          <p>設計一項隨機、雙盲、安慰劑對照試驗，檢驗每週 50,000 IU 維生素D補充在12週後對2型糖尿病女性性功能的影響，以Female Sexual Function Index (FSFI) 作為主要結論結論。</p>
+          <div class="card-footer">
+            <span class="tag">維生素D</span><span class="tag">性功能</span><span class="tag">2型糖尿病</span><span class="tag">隨機對照試驗</span><span class="tag">臨床試驗</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div>
+<div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧘</span>
+            <span class="utility-low utility-sm">middle</span>
+          </div>
+          <h3>The Role of Stress-Related Biomarkers, Immune-Inflammatory Pathways, and Genetic Polymorphisms in Cognitive-Behavioral Therapies for Chronic Low Back Pain and Depression: Results From a Randomized Controlled Trial (The IMPACT Study)</h3>
+          <p class="journal-source">Psychotherapy biomarkers</p>
+          <p>114名女性慢性腰痛合併憂鬱症患者接受接受承諾治療 (ACT) 或行為啟動療法 (BATD)，雖未顯著改變生物標記物，但兩療法均顯著改善臨床變項（如疼痛干擾、憂鬱症狀、焦慮），且基線生物標記與 FKBP5 基因型預測治療回應。</p>
+          <div class="card-footer">
+            <span class="tag">認知行為治療</span><span class="tag">慢性腰痛</span><span class="tag">憂鬱症</span><span class="tag">免疫-炎症</span><span class="tag">基因預測</span>
+            <a href="#" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+              <span class="topic-name">憂鬱症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">8</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">腸腦軸</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:75%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">維生素D</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:63%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">氧化壓力</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">益生菌</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">個體化營養</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">肥胖</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">認知功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:38%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">睡眠</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+<div class="topic-row">
+              <span class="topic-name">藥草</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">營養補充劑</span><span class="keyword">精神醫學</span><span class="keyword">omega-3</span><span class="keyword">維生素D</span><span class="keyword">腸腦軸</span><span class="keyword">抗氧化</span><span class="keyword">個體化營養</span><span class="keyword">抑鬱症</span><span class="keyword">益生菌</span><span class="keyword">臨床試驗</span></div></div>
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-name">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📧</span>
+        <span class="link-name">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-name">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3.5-lightning-30b-a3b</span>
+    <span><a href="https://github.com/u8901006/supplement-research">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
